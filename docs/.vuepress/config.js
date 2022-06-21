@@ -63,6 +63,7 @@ module.exports = {
     navbar: CONFIG.navbar,
     sidebar: CONFIG.sidebar,
     // sidebarDepth: 0,
-    lastUpdated: 'Last Updated',
+    lastUpdatedText: '上次更新',
+    contributorsText: '贡献者'
   }),
 }
