@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /main.png
-heroText: best wishes to you
+heroText: Best wishes to you!
 tagline: William's blog
 # actions:
 #   - text: Get Started
