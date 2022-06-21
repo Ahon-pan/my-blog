@@ -1,8 +1,8 @@
 .DS_Store
 node_modules/
 dist/
-docs/.vuepress/.cache/
-docs/.vuepress/.temp/
+.cache/
+.temp/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
