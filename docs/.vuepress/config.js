@@ -14,7 +14,7 @@ const { searchPlugin } = require('@vuepress/plugin-search')
 module.exports = {
   title: 'William',// 设置网站标题
   description: 'William的博客',
-  base: '/',// 设置站点根路径
+  base: '/my-blog/',// 设置站点根路径
   dest: 'docs/.vuepress/dist',  // 设置输出目录
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }] // 增加一个自定义的 favicon

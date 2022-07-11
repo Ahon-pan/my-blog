@@ -2,7 +2,7 @@
 
 ## VuePress V2.0 + Vite
 
-### [进入博客](https://ahon-pan.github.io/)
+### [进入博客](https://ahon-pan.github.io/my-blog)
 
 ```bash
 
