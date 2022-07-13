@@ -455,8 +455,8 @@ module.exports = [
     text: "剑指offer",
     link: "/interview/offer",
   },
-  {
-    text: "Github",
-    link: "https://github.com/ahon-pan",
-  },
+  // {
+  //   text: "Github",
+  //   link: "https://github.com/ahon-pan",
+  // },
 ];
