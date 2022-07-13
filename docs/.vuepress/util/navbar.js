@@ -325,7 +325,7 @@ module.exports = [
     text: "前端框架",
     children: [
       {
-        text: "Vue3",
+        text: "Vue",
         children: [
           {
             text: "Composition API",
