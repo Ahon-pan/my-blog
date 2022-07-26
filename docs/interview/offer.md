@@ -323,6 +323,7 @@ History 路由核心主要依赖 History API 里的两个方法和一个事件�
 
 <!-- <img :src="$withBase('/imgs/proto.JPG')" alt="proto"/> -->
 ![proto](./imgs/proto.jpg)
+
 **原型链继承**：
 让子类的原型指向父类的实例
 
