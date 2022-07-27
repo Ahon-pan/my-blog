@@ -1,8 +1,12 @@
+const { path } = require('@vuepress/utils')
+
 const { backToTopPlugin } = require('@vuepress/plugin-back-to-top')
 const { searchPlugin } = require('@vuepress/plugin-search')
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { copyCodePlugin } = require('vuepress-plugin-copy-code2')
 // const { socialSharePlugin } = require(`vuepress-plugin-social-share`)
+const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+
 module.exports = [
   backToTopPlugin(), // 返回顶部
   searchPlugin({
@@ -26,6 +30,10 @@ module.exports = [
     duration: 2000, // 提示消息显示时间，设置为 0 会禁用提示。
     // pure: true, // 是否生成样式纯净的小而简单的复制按钮
   }),
+  // vue 组件
+  registerComponentsPlugin({
+    componentsDir: path.resolve(__dirname, '../components')
+  })
   // 分享
   // socialSharePlugin({
   //   networks: [`email`, `wechat`, `qq`],

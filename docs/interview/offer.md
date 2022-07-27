@@ -1,4 +1,7 @@
 # 剑指offer
+<!-- <div style="width:400px;height:400px;background:#000;">
+<svgAnimate1 text="123" />
+</div> -->
 
 ### 1. 为什么 JSON.parse(JSON.stringify(obj))能实现深拷贝
 
@@ -671,5 +674,420 @@ Cookies.set(
 应用系统拿到 Token之后，还需要向认证中心确认下 Token 的合法性，防止用户伪造。确认无误后，应用系统记录用户的登录状态，并将 Token写入Cookie，然后给本次访问放行。（注意这个 Cookie 是当前应用系统的）当用户再次访问当前应用系统时，就会自动带上这个 Token，应用系统验证 Token 发现用户已登录，于是就不会有认证中心什么事了
 
 此种实现方式相对复杂，支持跨域，扩展性好，是单点登录的标准做法
+
+### 38. 组件封装
+
+::: tip 组件封装绕不开的几点
+
+- 插槽 [了解更多](https://cn.vuejs.org/v2/guide/components-slots.html)
+- $attrs,$listeners(基于第三方组件进行二次封装常用)
+
+:::
+
+##### 一、Vue组件封装利器--slot插槽
+
+> 插槽又分为`匿名插槽`、`具名插槽`、`作用域插槽`
+
+::: warning 提示
+这里又分两种写法，在 vue2.6.0+中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令), 取代了之前的`slot`和`slot-scope`
+
+(不知道项目的vue版本？在package.json里查去)
+:::
+
+##### 1) 匿名插槽
+
+```vue
+<!--组件调用页面-->
+<template>
+  <div class="parent">
+    <child>
+      <template>
+        <p>插入匿名插槽</p>
+      </template>
+    </child>
+  </div>
+</template>
+
+<script>
+import Child from '@/components/Child'
+export default {
+  components: {
+    Child
+  }
+}
+</script>
+```
+
+Child组件
+```vue
+<!--Child组件-->
+<template>
+  <div class="child">
+    <h3>子组件：匿名插槽</h3>
+    <slot></slot>
+  </div>
+</template>
+```
+其实就是在封装组件中，加 slot 标签
+
+在要使用的标签上，使用 template 标签，再插入本身想要的组件。
+
+固然，匿名插槽也能够叫默认插槽，这都是别名，不一样的叫法。
+
+##### 2) 具名插槽
+
+:::: code-group
+::: code-group-item vue2.6.0之前
+```vue
+<!--组件调用页面-->
+<template>
+  <div class="parent">
+    <child>
+      <template slot="header">
+        <p>插入具名插槽</p>
+      </template>
+      <template slot="footer">
+        <p>插入具名插槽</p>
+      </template>
+    </child>
+  </div>
+</template>
+
+<script>
+import Child from '@/components/Child'
+export default {
+  components: {
+    Child
+  }
+}
+</script>
+```
+:::
+::: code-group-item vue2.6.0+
+```vue
+<!--组件调用页面-->
+<template>
+  <div class="parent">
+    <child>
+      <template v-slot:header><!--v-slot:header也可以缩写#header-->
+        <p>插入具名插槽</p>
+      </template>
+      <template v-slot:footer><!--v-slot:footer也可以缩写#footer-->
+        <p>插入具名插槽</p>
+      </template>
+    </child>
+  </div>
+</template>
+
+<script>
+import Child from '@/components/Child'
+export default {
+  components: {
+    Child
+  }
+}
+</script>
+```
+:::
+::::
+
+Child组件
+```vue
+<!--Child组件-->
+<template>
+  <div class="child">
+    <h3>子组件：具名插槽</h3>
+    <slot name="header"></slot>
+    <slot name="footer"></slot>
+  </div>
+</template>
+
+<style scoped>
+  .child {
+    background: #b2fffc;
+  }
+</style>
+```
+
+##### 3) 作用域插槽
+:::: code-group
+::: code-group-item vue2.6.0之前
+```vue 
+<!--组件调用页面-->
+<template>
+  <div class="parent">
+    <child>
+      <template slot-scope="scope">
+        <div v-for="(item, index) in scope.data" :key="index">
+          <input type="text" :value="item"/>
+        </div>
+      </template>
+    </child>
+  </div>
+</template>
+
+<script>
+import Child from '@/components/Child'
+export default {
+  components: {
+    Child
+  }
+}
+</script>
+```
+:::
+::: code-group-item vue2.6.0+
+```vue 
+<!--组件调用页面-->
+<template>
+  <div class="parent">
+    <child>
+      <template v-slot:default="scope"><!--缩写#default="scope,注意这里的default不能省略"-->
+        <div v-for="(item, index) in scope.data" :key="index">
+          <input type="text" :value="item"/>
+        </div>
+      </template>
+    </child>
+  </div>
+</template>
+
+<script>
+import Child from '@/components/Child'
+export default {
+  components: {
+    Child
+  }
+}
+</script>
+```
+:::
+::::
+
+Child组件
+
+```vue
+<!--封装的组件-->
+<template>
+  <div class="child">
+    <h3>child组件标题</h3>
+    <slot :data="list"></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      list: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    }
+  }
+}
+</script>
+```
+
+##### 二、v-bind="$attrs", v-on="$listeners"
+
+##### 示例
+
+> 基于elementui封装的input, MyInput.vue
+```vue
+<!-- 
+这里props并没有接收placeholder，
+this.$attrs = {placeholder: '请搜索', clearable: true} 
+-->
+<!-- 
+由于父组件传入的是一个change事件和一个input事件和focus事件，
+那我们打印的this.$listeners是 
+{
+  change: fn,
+  input: fn,
+  focus: fn
+}
+-->
+<!-- 像项目中根据业务需求定制的input，只想添加部分逻辑，其他照常当el-input属性写 -->
+<template>
+  <el-input ref="input"
+    v-bind="$attrs"
+    v-on="$listeners"
+    v-model="defaultValue">
+  </el-input>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      defaultValue: '' // 作为中间变量
+    }
+  },
+  inheritAttrs: false, // 此处设置根元素禁用继承特性（只继承class属性）
+  // 当inheritAttrs为true的话，只继承除class style props之外的属性
+  props: {
+    value: [String, Number] // value值
+  },
+  watch: { // watch的目的是异步获取value值仍然可以赋值成功
+    value: {
+      handler (val) {
+        this.defaultValue = val
+      },
+      immediate: true // 给组件设置默认值
+    }
+  }
+}
+</script>
+
+```
+
+调用MyInput.vue
+
+```vue
+<template>
+  <my-input
+    :clearable="true"
+    :placeholder="请搜索"
+    @change="changeHandler"
+    @input="inputHandler"
+    @focus="handleFocus"
+    v-model="count">
+  </my-input>
+</template>
+<script>
+  export default {
+    data () {
+      return {count: ''}
+    },
+    methods: {
+      // MyInput.vue并没有$('emit'), 这里照常能接收事件
+      changeHandler (e) {},
+      inputHandler (e) {},
+      handleFocus(e) {}
+    }
+}
+</script>
+```
+
+##### 三、 子组件修改父组件值的方法
+
+**示例1**
+
+封装的组件，假如里面有一些业务逻辑add.vue
+
+```vue
+<template>
+  <el-dialog
+    title="提示"
+    :visible.sync="dialogVisible"
+    width="30%">
+    <span>这是一段信息</span>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="fnCloseDialog">取 消</el-button>
+      <el-button type="primary" @click="fnCloseDialog">确 定</el-button>
+    </span>
+  </el-dialog>
+</template>
+<script>
+  export default {
+    props: {
+      dialogVisible: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data() {
+      return {
+      };
+    },
+    methods: {
+      fnCloseDialog() {
+        this.$emit("update:dialogVisible", false)
+      }
+      
+    }
+  };
+</script>
+```
+
+调用的组件
+
+```vue
+<template>
+<!-- 使用.sync配合$emit方法以update的模式触发事件从而修改父组件属性值 -->
+  <add :dialogVisible.sync="dialogVisible" />
+  <el-button type="primary" @click="fnOpenAddDialog">新增</el-button>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        dialogVisible: false
+      };
+    },
+    methods: {
+      fnOpenAddDialog() {
+        this.dialogVisible = true
+      }
+    }
+  };
+</script>
+```
+
+**示例2**
+
+::: tip v-model本质
+- 给子组件的value传个变量
+- 监听子组件的input事件,并且把传过来的值赋给父组件的变量
+:::
+
+```vue
+<template>
+  <home-child v-model="modelData"></home-child>
+<!-- 相当于<home-child :value="modelData" @input="modelData = $event"></home-child> -->
+</template>
+
+<script>
+import HomeChild from './HomeChild.vue'
+export default {
+  name: 'Home',
+  components: {
+    HomeChild
+  },
+  data () {
+    return {
+      modelData: 'hello v-model!'
+    }
+  }
+}
+</script>
+```
+HomeChild.vue
+
+```vue
+<template>
+  <div class="box">
+    <span>{{ value }}</span>
+    <button @click="testVModel">更改父组件值</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeChild',
+  props: {
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    testVModel () {
+      this.$emit('input', '我是子组件')
+    }
+  }
+}
+</script>
+
+```
+
+
+
 
 :tada: :100: :100: :100:

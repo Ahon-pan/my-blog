@@ -6,7 +6,7 @@ const CONFIG = require("./util")
 //   base: '/mt-blog/', // 设置站点根路径
 //   repo: 'https://github.com/ahon-pan/mt-blog' // 添加 github 链接
 // }
-const pluginConf = require('../../config/pluginConf.js');
+const pluginConf = require('./config/pluginConf.js');
 const { defaultTheme } = require('@vuepress/theme-default')
 // const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 // import { commentPlugin } from "vuepress-plugin-comment";
@@ -18,7 +18,18 @@ module.exports = {
   base: '/my-blog/',// 设置站点根路径
   dest: 'docs/.vuepress/dist',  // 设置输出目录
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }] // 增加一个自定义的 favicon
+    ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon
+    // ["script", {
+    //   "language": "javascript",
+    //   "type": "text/javascript",
+    //   "src": "/my-blog/js/jquery-3.3.1.min.js"
+    // }],
+    // 引入鼠标点击脚本
+    ["script", {
+      "language": "javascript",
+      "type": "text/javascript",
+      "src": "/my-blog/js/MouseClickEffect.js"
+    }]
     // 添加谷歌统计
     // [
     //   "script",
