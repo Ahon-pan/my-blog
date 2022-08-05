@@ -721,6 +721,7 @@
 </template>
 
 <script setup>
+import { toRefs } from 'vue'
 const props = defineProps({
   text: {
     type: String,
@@ -731,4 +732,5 @@ const props = defineProps({
     default: '',
   },
 })
+const { text, des } = toRefs(props)
 </script>

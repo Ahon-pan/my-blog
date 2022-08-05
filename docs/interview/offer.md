@@ -1,8 +1,5 @@
 # 剑指offer
-<!-- <div style="width:400px;height:400px;background:#000;">
-<svgAnimate1 text="123" />
-</div> -->
-
+<!-- <test /> -->
 ### 1. 为什么 JSON.parse(JSON.stringify(obj))能实现深拷贝
 
 拷贝一个字符串，会新开辟一个存储地址，切断了对象的指针联系 
@@ -694,7 +691,7 @@ Cookies.set(
 (不知道项目的vue版本？在package.json里查去)
 :::
 
-##### 1) 匿名插槽
+##### 1) 匿名插槽 （或叫默认插槽）
 
 ```vue
 <!--组件调用页面-->
@@ -884,6 +881,124 @@ export default {
 }
 </script>
 ```
+##### 4) 动态插槽
+___
+
+::: tip 场景
+如果需要传递的slot不固定或者较多，我们可以通过动态插槽名称透传
+:::
+
+> 这里举例二次封装el-input
+
+父组件
+
+:::: code-group
+::: code-group-item vue2.6.0之前
+```vue
+<!-- 父组件 -->
+<template>
+  <MyInput placeholder="请输入网址" v-model="value">
+    <el-button slot="prepend">Http://</el-button>
+    <el-button slot="append">.com</el-button>
+  </MyInput>
+</template>
+
+<script>
+import MyInput from './MyInput.vue'
+export default {
+  components: {
+    MyInput
+  },
+  data() {
+    return {
+      value: ''
+    }
+  }
+}
+</script>
+```
+:::
+::: code-group-item vue2.6.0+
+```vue
+<template>
+  <MyInput placeholder="请输入网址" v-model="value">
+  <template #prepend>
+    <el-button>Http://</el-button>
+  </template>
+  <template #append>
+    <el-button>.com</el-button>
+  </template>
+  </MyInput>
+</template>
+
+<script>
+import MyInput from './MyInput.vue'
+export default {
+  components: {
+    MyInput
+  },
+  data() {
+    return {
+      value: ''
+    }
+  }
+}
+</script>
+
+```
+:::
+::::
+
+MyInput组件
+
+
+:::: code-group
+::: code-group-item vue2.6.0之前
+```vue
+<!-- MyInput组件 -->
+<template>
+  <el-input v-bind='$attrs' v-on="$listeners">
+    <template :slot="slotName" v-for="(slot, slotName) in $slots" >
+      <slot :name="slotName" />
+    </template>
+  </el-input>
+</template>
+
+<script>
+  export default {
+    name:'MyInput',
+  }
+</script>
+```
+:::
+::: code-group-item vue2.6.0+
+```vue
+<!-- MyInput组件 -->
+<template>
+  <el-input v-bind='$attrs' v-on="$listeners">
+    <template #[slotName] v-for="(slot, slotName) in $slots" >
+      <slot :name="slotName" />
+    </template>
+  </el-input>
+</template>
+
+<script>
+  export default {
+    name:'MyInput',
+  }
+</script>
+```
+:::
+::::
+
+效果
+
+![dynamicSlot](./imgs/dynamicSlot.png)
+
+
+
+
+
 
 ##### 二、v-bind="$attrs", v-on="$listeners"
 
