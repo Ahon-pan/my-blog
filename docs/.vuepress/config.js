@@ -19,6 +19,7 @@ module.exports = {
   dest: 'docs/.vuepress/dist',  // 设置输出目录
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon
+    ['link', {rel: 'stylesheet', href: '/css/index.css'}],
     // ["script", {
     //   "language": "javascript",
     //   "type": "text/javascript",
@@ -50,12 +51,19 @@ module.exports = {
     // ],
   ],
   plugins: pluginConf,
+  markdown: {
+    code: {
+      // 关闭行号显示
+      lineNumbers: false
+    }
+  },
   theme: defaultTheme({
     // search: true,
     logo: '/avater.png',
     // 添加导航栏
     navbar: CONFIG.navbar,
     sidebar: CONFIG.sidebar,
+    
     // sidebarDepth: 0,
     lastUpdatedText: '上次更新',
     contributorsText: '贡献者'

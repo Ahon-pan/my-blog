@@ -1,24 +1,27 @@
 const { path } = require('@vuepress/utils')
 
 const { backToTopPlugin } = require('@vuepress/plugin-back-to-top')
-const { searchPlugin } = require('@vuepress/plugin-search')
+// const { searchPlugin } = require('@vuepress/plugin-search')
+const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 const { copyCodePlugin } = require('vuepress-plugin-copy-code2')
 // const { socialSharePlugin } = require(`vuepress-plugin-social-share`)
-const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+const {
+  registerComponentsPlugin,
+} = require('@vuepress/plugin-register-components')
 
 module.exports = [
   backToTopPlugin(), // 返回顶部
-  searchPlugin({
-    locales: {
-      // '/': {
-      //   placeholder: 'Search',
-      // },
-      '/': {
-        placeholder: '搜索',
-      },
-    },
-  }),
+  // searchPlugin({
+  //   locales: {
+  //     // '/': {
+  //     //   placeholder: 'Search',
+  //     // },
+  //     '/': {
+  //       placeholder: '搜索',
+  //     },
+  //   },
+  // }),
   // 谷歌统计方案1
   googleAnalyticsPlugin({
     // 配置项
@@ -32,8 +35,27 @@ module.exports = [
   }),
   // vue 组件
   registerComponentsPlugin({
-    componentsDir: path.resolve(__dirname, '../components')
-  })
+    componentsDir: path.resolve(__dirname, '../components'),
+  }),
+  // docSearch  //申请真的慢
+  docsearchPlugin({
+    // 配置项
+    appId: 'WWHXPQWUL8',
+    apiKey: 'fa7855339da42ec3eecdc8b9e55a6616',
+    indexName: 'ahon-pan',
+    locales: {
+      '/': {
+        placeholder: '搜索文档',
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+          },
+        },
+      },
+    },
+    // container: '### REPLACE ME WITH A CONTAINER (e.g. div) ###',
+    debug: false, // Set debug to true if you want to inspect the modal
+  }),
   // 分享
   // socialSharePlugin({
   //   networks: [`email`, `wechat`, `qq`],
