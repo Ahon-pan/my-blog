@@ -1,0 +1,21 @@
+/* Mac风格代码块 */
+pre {
+  position: relative;
+}
+pre::after {
+  display: block;
+  content: " ";
+  position: absolute;
+  border-radius: 50%;
+  background: #ff5f56;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 12px;
+  margin-top: 12px;
+  -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+  box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+}
+.theme-default-content pre, .theme-default-content pre[class*=language-] {
+  padding-top: 1.8rem;
+}
