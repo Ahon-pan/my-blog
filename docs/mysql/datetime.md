@@ -109,7 +109,7 @@ select cname,TIME_FORMAT(birthday,'%h:%i:%s') as birthday from class;
 ALTER TABLE class ADD updated_at
 TIMESTAMP default CURRENT_TIMESTAMP;
 
-INSERT INTO class SET cname = 'Jerry',updated_at = '2020-2-12 10:33:12';
+INSERT INTO class SET cname = 'William',updated_at = '2020-2-12 10:33:12';
 ```
 
 **添加数据时自动更新时间**  `ON UPDATE CURRENT_TIMESTAMP`

@@ -22,17 +22,17 @@ console.table(obj); //{1:"world"}
 
 ```js
 let obj = { 1: "hello", "1": "world" 
-let abc = { [obj]: "Jerry" };
+let abc = { [obj]: "William" };
 
-console.log(abc[obj.toString()]);   // Jerry
-console.log(abc["[object Object]"]);  // Jerry
+console.log(abc[obj.toString()]);   // William
+console.log(abc["[object Object]"]);  // William
 ```
 
 📗 使用数组做初始数据
 
 ```js
-let abc = new Set(['Jerry', 'hello']);
-console.log(abc.values()); //{"Jerry", "hello"}
+let abc = new Set(['William', 'hello']);
+console.log(abc.values()); //{"William", "hello"}
 ```
 
 Set 中是**严格类型约束**的，下面的数值`1`与字符串`1`属于两个不同的值
@@ -61,7 +61,7 @@ console.log(abc.values());  //SetIterator {"world", "hello"}
 `size`获取元素数量
 
 ```js
-let abc = new Set(['Jerry', 'hello']);
+let abc = new Set(['William', 'hello']);
 console.log(abc.size); //2
 ```
 
@@ -199,7 +199,7 @@ document.querySelector('input').addEventListener('blur', function () {
 
 ```js
 let abc = new Set(['hello', 'world']);
-let cms = new Set(['Jerry', 'hello']);
+let cms = new Set(['William', 'hello']);
 let newSet = new Set(
 	[...abc].filter(item => cms.has(item))
 );
@@ -212,7 +212,7 @@ console.log(newSet); //{"hello"}
 
 ```js
 let abc = new Set(['hello', 'world']);
-let cms = new Set(['Jerry', 'hello']);
+let cms = new Set(['William', 'hello']);
 let newSet = new Set(
 	[...abc].filter(item => !cms.has(item))
 );
@@ -225,7 +225,7 @@ console.log(newSet); //{"world"}
 
 ```js
 let abc = new Set(['hello', 'world']);
-let cms = new Set(['Jerry', 'hello']);
+let cms = new Set(['William', 'hello']);
 let newSet = [...abc, ...cms];
 console.log(newSet);
 ```
@@ -370,7 +370,7 @@ setTimeout(() => {
     <ul>
       <li>world.com <a href="javascript:;">x</a></li>
       <li>hello.com <a href="javascript:;">x</a></li>
-      <li>jerry.com <a href="javascript:;">x</a></li>
+      <li>William.com <a href="javascript:;">x</a></li>
     </ul>
   </body>
 

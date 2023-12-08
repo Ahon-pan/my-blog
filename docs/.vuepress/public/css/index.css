@@ -19,3 +19,11 @@ pre::after {
 .theme-default-content pre, .theme-default-content pre[class*=language-] {
   padding-top: 1.8rem;
 }
+.footer a {
+  color: #4e6e8e!important;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -197,7 +197,7 @@ if (stat) {
 下面都是合法的命名
 
 ```js
-let name = 'jerry';
+let name = 'William';
 let $='choice';
 ```
 
@@ -232,7 +232,7 @@ console.log(f);  // 3
 下面演示了变量可以**更换**不同类型的数据
 
 ```js
-let abc = 'jerry';
+let abc = 'William';
 console.log(typeof abc);  // string
 
 abc = 18;
@@ -259,7 +259,7 @@ console.log(typeof web);  // object
 💡 下面代码在解析过程中发现`while`不能做为变量名，没有到执行环节就出错了，这是一个很好的解析过程的体验。
 
 ```js
-var web = 'jerry';
+var web = 'William';
 console.log(web);
 let while = 'text'; //Uncaught SyntaxError: Unexpected token 'while'
 ```
@@ -281,7 +281,7 @@ console.log(a); //1
 下面是 `if(false)` 中定义的var也会发生变量提升，注释掉`if` 结果会不同
 
 ```js
-var web = "jerry";
+var web = "William";
 function func() {
   if (false) {
     var web = "text";  // 虽然代码不会执行到这行，但变量的声明提升依然会发生
@@ -324,7 +324,7 @@ let x = 1;
 📌 在`run`函数作用域中产生TDZ，不允许变量在未声明前使用。
 
 ```js
-abc = "jerry";
+abc = "William";
 function run() {
   console.log(abc);  // Cannot access 'abc' before initialization
   let abc = "abccms";
@@ -381,8 +381,8 @@ console.log(web); //全局访问: web is not defined
 ```js
 var web = "google.com";
 function abc() {
-  var web = "jerry.com";
-  console.log(web); //jerry.com
+  var web = "William.com";
+  console.log(web); //William.com
 }
 abc();
 console.log(web); //google.com
@@ -396,10 +396,10 @@ console.log(web); //google.com
 
 ```js
 function run() {
-  web = "jerry";
+  web = "William";
 }
 run();
-console.log(web); //jerry
+console.log(web); //William
 ```
 
 没有块作用域时, var也会污染全局
@@ -441,8 +441,8 @@ show();
 📌`var` 全局声明的变量也存在于 `window`对象中，这会严重污染全局环境
 
 ```js
-var abc = "jerry";
-console.log(window.abc); //jerry
+var abc = "William";
+console.log(window.abc); //William
 ```
 
 以往没有块任用时使用立即执行函数模拟块作用域
@@ -476,7 +476,7 @@ console.log($.web);  // google.com
 
 ```js
 if (true) {
-    let web = 'google.com',url = 'jerry.com';
+    let web = 'google.com',url = 'William.com';
     console.log(web); //google.com
 }
 console.log(web); //web is not defined
@@ -500,12 +500,12 @@ console.log(user);  // user is not defined
 
 ```js
 function run() {
-    abc = "jerry";
+    abc = "William";
     if (true) {
         let abc = "abc";
         console.log(abc); //abc
     }
-    console.log(abc); //jerry
+    console.log(abc); //William
 }
 run();
 ```
@@ -652,8 +652,8 @@ console.log(typeof abc);  // undefined
 📌 对**未声明**的变量使用会报错，但判断类型将显示 `undefined`。
 
 ```js
-console.log(typeof jerry);  // undefined
-console.log(jerry);  // jerry is not defined
+console.log(typeof William);  // undefined
+console.log(William);  // William is not defined
 ```
 
 我们发现未赋值与未定义的变量值都为 `undefined` ，建议声明变量设置初始值，这样就可以区分出变量状态了。
@@ -689,7 +689,7 @@ console.log(typeof abc); // null
 
 ```js
 "use strict";
-url = 'jerry.com'; //url is not defined
+url = 'William.com'; //url is not defined
 ```
 
 强制声明防止污染全局
@@ -697,7 +697,7 @@ url = 'jerry.com'; //url is not defined
 ```js
 "use strict";
 function run() {
-  web = "jerry";  //  web is not defined
+  web = "William";  //  web is not defined
 }
 run();
 ```
@@ -706,7 +706,7 @@ run();
 
 ```js
 "use strict";
-var public = 'jerry.com';
+var public = 'William.com';
 // Unexpected strict mode reserved word
 ```
 
@@ -735,7 +735,7 @@ function notStrict() {
 ```js
 (function () {
   "use strict";
-  url = 'jerry.com';
+  url = 'William.com';
 })();
 ```
 
@@ -745,7 +745,7 @@ function notStrict() {
 
 ```js
 "use strict";
-({name,url} = {name:'jerry',url:'google.com'});
+({name,url} = {name:'William',url:'google.com'});
 console.log(name, url); // url is not defined
 ```
 
@@ -757,9 +757,9 @@ let {
     name,
     url
 } = {
-    name: 'jerry',
+    name: 'William',
     url: 'google.com'
 };
-console.log(name, url);  // jerry google.com
+console.log(name, url);  // William google.com
 ```
 

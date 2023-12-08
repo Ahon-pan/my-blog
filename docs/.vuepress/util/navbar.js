@@ -451,10 +451,38 @@ module.exports = [
       },
     ],
   },
+  // {
+  //   text: "剑指offer",
+  //   children: [
+  //     {
+  //       text: "2022",
+  //       link: "/interview/offer-2022",
+  //     },
+  //     {
+  //       text: "2023",
+  //       link: "/interview/offer-2023",
+  //     },
+  //   ]
+    
+  // },
   {
-    text: "剑指offer",
-    link: "/interview/offer",
+    text: "专栏",
+    link: "/specialColumn/specialColumn",
   },
+  {
+      text: "财经",
+      children: [
+        {
+          text: "基础知识",
+          link: "/financeAndEconomics/base",
+        },
+        // {
+        //   text: "2023",
+        //   link: "/finance and economics/offer-2023",
+        // },
+      ]
+      
+    },
   // {
   //   text: "Github",
   //   link: "https://github.com/ahon-pan",

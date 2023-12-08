@@ -189,7 +189,13 @@ module.exports = {
   "/interview/": [
     {
       text: "剑指offer",
-      children: ["/interview/offer"],
+      children: ["/interview/offer-2022", "/interview/offer-2023"],
     },
   ],
+  "/financeAndEconomics/": [
+    {
+      text: "基础知识",
+      children: ["/financeAndEconomics/base"],
+    },
+  ]
 };

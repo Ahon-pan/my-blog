@@ -25,7 +25,7 @@ console.log(average(grade, name));  // Michael:92分
 
 ```js
 let user = {
-  name: "Jerry",
+  name: "William",
   grade: [
     { lesson: "js", score: 99 },
     { lesson: "mysql", score: 85 }
@@ -54,25 +54,25 @@ let user = {
 
 ```js
 let obj = {
-  name: 'Jerry',
+  name: 'William',
   get:function() {
   	return this.name;
   }
 }
-console.log(obj.get()); // Jerry
+console.log(obj.get()); // William
 ```
 
 属性与方法简写
 
 ```js
-let name = "Jerry";
+let name = "William";
 let obj = {
   name,
   get() {
     return this.name;
   }
 };
-console.log(obj.get()); //Jerry
+console.log(obj.get()); //William
 ```
 
 其实字面量形式在系统内部也是使用构造函数 `new Object`创建的，后面会详细介绍构造函数。
@@ -124,19 +124,19 @@ console.log(user["my-age"]);  // 28
 
 ```js
 const obj = {
-  name: "Jerry"
+  name: "William"
 };
 obj.age = "25";
 obj.show = function() {
   return `${this.name}已经${this.age}岁了`;
 };
-console.log(obj.show());  // Jerry已经25岁了
-console.log(obj);  // {name: 'Jerry', age: '10', show: ƒ}
+console.log(obj.show());  // William已经25岁了
+console.log(obj);  // {name: 'William', age: '10', show: ƒ}
 
 delete obj.show;  
 delete obj.age;
 
-console.log(obj);  // {name: 'Jerry'}
+console.log(obj);  // {name: 'William'}
 console.log(obj.age); //undefined
 ```
 
@@ -177,7 +177,7 @@ console.log(lisi.avgGrade());  // 83
 对象和函数、数组一样是引用类型，即复制只会复制引用地址。
 
 ```js
-let obj = { name: "Jerry" };
+let obj = { name: "William" };
 let cms = obj;
 cms.name = "obj name";
 console.log(obj.name); // obj name
@@ -245,9 +245,9 @@ console.log(obj.show()); // Michael
 使用`...`可以展示对象的结构，下面是实现对象合并的示例
 
 ```js
-let obj = { name: "Jerry", web: "google.com" };
+let obj = { name: "William", web: "google.com" };
 let info = { ...obj, site: "www" };
-console.log(info);  // {name: 'Jerry', web: 'google.com', site: 'www'}
+console.log(info);  // {name: 'William', web: 'google.com', site: 'www'}
 ```
 
 下面是函数参数合并的示例 (后面的会覆盖前面的)
@@ -315,7 +315,7 @@ console.log(obj + 3); //4
 
 ```js
 let obj = {
-  name: "Jerry",
+  name: "William",
   num: 1,
   valueOf: function() {
     console.log("valueOf");
@@ -327,7 +327,7 @@ let obj = {
   }
 };
 console.log(obj + 3); // valueOf 4
-console.log(`${obj} Michael`); // toString Jerry Michael
+console.log(`${obj} Michael`); // toString William Michael
 ```
 
 ## 解构赋值
@@ -342,13 +342,13 @@ console.log(`${obj} Michael`); // toString Jerry Michael
 
 ```js
 //对象使用
-let info = {name:'Jerry', url:'ace.com'};
+let info = {name:'William', url:'ace.com'};
 let {name: n, url: u} = info
-console.log(n); // Jerry
+console.log(n); // William
 
 //如果属性名与变量相同可以省略属性定义
-let {name,url} = {name:'Jerry',url:'ace.com'};
-console.log(name); // Jerry
+let {name,url} = {name:'William',url:'ace.com'};
+console.log(name); // William
 ```
 
 函数返回值直接解构到变量
@@ -356,12 +356,12 @@ console.log(name); // Jerry
 ```js
 function obj() {
   return {
-    name: 'Jerry',
+    name: 'William',
     url: 'ace.com'
   };
 }
 let {name: n,url: u} = obj();
-console.log(n);  // Jerry
+console.log(n);  // William
 ```
 
 函数传参
@@ -387,7 +387,7 @@ console.log(random());
 
 ```js
 // "use strict";
-({name,url} = {name:'Jerry',url:'ace.com'});
+({name,url} = {name:'William',url:'ace.com'});
 console.log(name, url); // Error
 ```
 
@@ -395,8 +395,8 @@ console.log(name, url); // Error
 
 ```js
 "use strict";
-let { name, url } = { name: "Jerry", url: "ace.com" };
-console.log(name, url);  // Jerry ace.com
+let { name, url } = { name: "William", url: "ace.com" };
+console.log(name, url);  // William ace.com
 ```
 
 ### 简洁定义
@@ -404,32 +404,32 @@ console.log(name, url);  // Jerry ace.com
 如果属性名与赋值的变量名相同可以更简洁
 
 ```js
-let web = { name: "Jerry", url: "ace.com" };
+let web = { name: "William", url: "ace.com" };
 let { name, url } = web;
-console.log(name); //Jerry
+console.log(name); //William
 ```
 
 只赋值部分变量
 
 ```js
-let [,url]=['Jerry','ace.com'];
+let [,url]=['William','ace.com'];
 console.log(url);  // ace.com
 
-let {name}= {name:'Jerry',url:'ace.com'};
-console.log(name);  // Jerry
+let {name}= {name:'William',url:'ace.com'};
+console.log(name);  // William
 ```
 
 可以直接使用变量赋值对象属性
 
 ```js
-let name = "Jerry",url = "ace.com";
+let name = "William",url = "ace.com";
 //标准写法如下
 let obj = { name: name, url: url };
-console.log(obj);  //{name: "Jerry", url: "ace.com"}
+console.log(obj);  //{name: "William", url: "ace.com"}
 
 //如果属性和值变量同名可以写成以下简写形式
 let opt = { name, url };
-console.log(opt); //{name: "Jerry", url: "ace.com"}
+console.log(opt); //{name: "William", url: "ace.com"}
 ```
 
 ### 嵌套解构
@@ -438,13 +438,13 @@ console.log(opt); //{name: "Jerry", url: "ace.com"}
 
 ```js
 const obj = {
-  name:'Jerry',
+  name:'William',
   lessons:{
     title:'JS'
   }
 }
 const {name,lessons:{title}}  = obj;
-console.log(name,title); //Jerry JS
+console.log(name,title); //William JS
 ```
 
 ### 默认值 💡
@@ -452,10 +452,10 @@ console.log(name,title); //Jerry JS
 为变量设置默认值
 
 ```js
-let [name, site = 'objcms'] = ['Jerry'];
+let [name, site = 'objcms'] = ['William'];
 console.log(site); //objcms
 
-let {name, url, user = 'Michael大叔'}= {name:'Jerry', url:'ace.com'};
+let {name, url, user = 'Michael大叔'}= {name:'William', url:'ace.com'};
 console.log(name,user);  // Michael大叔
 ```
 
@@ -488,7 +488,7 @@ createElement({
 function obj([a, b]) {
     console.log(a, b);
 }
-obj(['Jerry', 'objcms']);
+obj(['William', 'objcms']);
 ```
 
 对象参数使用方法
@@ -497,7 +497,7 @@ obj(['Jerry', 'objcms']);
 function obj({name,url,user='Michael大叔'}) {
     console.log(name,url,user);
 }
-obj({name:'Jerry','url':'ace.com'}); //Jerry ace.com Michael大叔
+obj({name:'William','url':'ace.com'}); //William ace.com Michael大叔
 ```
 
 对象解构传参
@@ -516,7 +516,7 @@ user("Michael大叔", { sex: "男", age: 18 });
 可以为对象添加属性
 
 ```js
-let obj = {name: "Jerry"};
+let obj = {name: "William"};
 obj.site = "ace.com";
 console.log(obj);
 ```
@@ -526,7 +526,7 @@ console.log(obj);
 使用`delete` 可以删除属性
 
 ```js
-let obj = { name: "Jerry" };
+let obj = { name: "William" };
 delete obj.name;
 console.log(obj.name); //undefined
 ```
@@ -536,14 +536,14 @@ console.log(obj.name); //undefined
 📗  `hasOwnProperty`检测对象自身是否包含指定的属性，不检测原型链上继承的属性。
 
 ```js
-let obj = { name: 'Jerry'};
+let obj = { name: 'William'};
 console.log(obj.hasOwnProperty('name')); // true
 ```
 
 下面通过数组查看
 
 ```js
-let arr = ["Jerry"];
+let arr = ["William"];
 console.log(arr);
 console.log(arr.hasOwnProperty("length")); // true
 console.log(arr.hasOwnProperty("concat")); // false
@@ -552,14 +552,14 @@ console.log(arr.hasOwnProperty("concat")); // false
 📌 使用 `in` 可以在原型对象上检测
 
 ```js
-let a = {name: "Jerry"};
+let a = {name: "William"};
 let b = {
     web: "ace.com"
 };
 
 //设置obj为obj的新原型
 Object.setPrototypeOf(a, b);
-console.log(a);  // { name: "Jerry" }
+console.log(a);  // { name: "William" }
 
 console.log("web" in a); // true 原型属性检测
 console.log(a.hasOwnProperty("web")); // false 
@@ -570,7 +570,7 @@ console.log(a.hasOwnProperty("web")); // false
 使用 `Object.getOwnPropertyNames` 可以获取对象的属性名集合
 
 ```js
-let obj = { name: 'Jerry', year: 2010 }
+let obj = { name: 'William', year: 2010 }
 const names = Object.getOwnPropertyNames(obj)
 console.log(names) // ["name", "year"]
 ```
@@ -632,7 +632,7 @@ console.log(lessonObj["css-0"]); //{title: "媒体查询响应式布局", catego
 
 ```js
 let user = {
-	name: 'Jerry'
+	name: 'William'
 };
 let obj = {
 	stu: user
@@ -649,12 +649,12 @@ console.log(user.name);//objcms
 
 ```js
 const obj = {
-  name: "Jerry",
+  name: "William",
   age: 10
 };
 console.log(Object.keys(obj)); //["name", "age"]
-console.log(Object.values(obj)); //["Jerry", 10]
-console.table(Object.entries(obj)); //[["name","Jerry"],["age",10]]
+console.log(Object.values(obj)); //["William", 10]
+console.table(Object.entries(obj)); //[["name","William"],["age",10]]
 ```
 
 ### for/in
@@ -663,7 +663,7 @@ console.table(Object.entries(obj)); //[["name","Jerry"],["age",10]]
 
 ```js
 const obj = {
-    name: "Jerry",
+    name: "William",
     age: 10
 };
 for (let key in obj) {
@@ -677,7 +677,7 @@ for (let key in obj) {
 
 ```js
 const obj = {
-    name: "Jerry",
+    name: "William",
     age: 10
 };
 for (const key of Object.keys(obj)) {
@@ -689,11 +689,11 @@ for (const key of Object.keys(obj)) {
 
 ```js
 const obj = {
-    name: "Jerry",
+    name: "William",
     age: 10
 };
 for (const key of Object.values(obj)) {
-    console.log(key); // Jerry 10
+    console.log(key); // William 10
 }
 ```
 
@@ -735,7 +735,7 @@ document.body.appendChild(ul);
 
 ```js
 let obj = {
-    name: 'Jerry',
+    name: 'William',
     user: {
         name: 'objcms'
     }
@@ -751,7 +751,7 @@ console.log(b.name); // lisi
 使用`for/in`执行对象拷贝
 
 ```js
-let a = {name: "Jerry"};
+let a = {name: "William"};
 
 let b = {};
 for (const key in a) {
@@ -759,7 +759,7 @@ for (const key in a) {
 }
 
 b.name = "Michael";
-console.log(a);  // {name: 'Jerry'}
+console.log(a);  // {name: 'William'}
 console.log(b);  // {name: 'Michael'}
 ```
 
@@ -767,25 +767,25 @@ console.log(b);  // {name: 'Michael'}
 
 ```js
 let user = {
-    name: 'Jerry'
+    name: 'William'
 };
 let obj = {
     stu: Object.assign({}, user)
 };
 obj.stu.name = 'new';
-console.log(user.name);  // Jerry
+console.log(user.name);  // William
 ```
 
 📌 使用展示语法也可以实现浅拷贝
 
 ```js
 let b = {
-    name: "Jerry"
+    name: "William"
 };
 let a = { ...b };
 a.name = "new";
 console.log(a);  // {name: 'new'}
-console.log(b);  // {name: 'Jerry'}
+console.log(b);  // {name: 'William'}
 ```
 
 ### 深拷贝 💡
@@ -794,7 +794,7 @@ console.log(b);  // {name: 'Jerry'}
 
 ```js
 let obj = {
-    name: 'Jerry',
+    name: 'William',
     user: {
         name: 'objcms'
     }
@@ -815,7 +815,7 @@ function copy(object) {
 
 ```js
 let obj = {
-  name: "Jerry",
+  name: "William",
   user: {
     name: "objcms"
   },
@@ -859,7 +859,7 @@ const model = {
     }
 };
 const obj = {
-    name: "Jerry",
+    name: "William",
     show() {
         console.log(this.name);
     }
@@ -951,7 +951,7 @@ JS中大部分数据类型都是通过构造函数创建的。
 const num = new Number(99);
 console.log(num.valueOf());  // valueOf()获取值
 
-const string = new String("Jerry");
+const string = new String("William");
 console.log(string.valueOf());
 
 const boolean = new Boolean(true);
@@ -964,15 +964,15 @@ const regexp = new RegExp("\\d+");
 console.log(regexp.test(99));
 
 let obj = new Object();
-obj.name = "Jerry";
-console.log(obj); // { name: "Jerry" }
+obj.name = "William";
+console.log(obj); // { name: "William" }
 ```
 
 字面量创建的对象，内部也是调用了`Object`构造函数
 
 ```js
 const obj = {
-    name: "Jerry"
+    name: "William"
 };
 console.log(obj.constructor); //ƒ Object() { [native code] }
 
@@ -1053,8 +1053,8 @@ function User(name, age) {
         return `${data.name}是${info()}`;
     };
 }
-let lisi = new User("Jerry", 22);
-console.log(lisi.message()); // Jerry是年轻人
+let lisi = new User("William", 22);
+console.log(lisi.message()); // William是年轻人
 ```
 
 ## 属性特征
@@ -1132,7 +1132,7 @@ const user = {
     name: "Michael"
 };
 Object.defineProperty(user, "name", {
-    value: "Jerry",
+    value: "William",
     writable: false,
     enumerable: false,
     configurable: false
@@ -1154,7 +1154,7 @@ Object.defineProperty(user, "name", {
 
 // 不允许再配置
 // Object.defineProperty(user, "name", {
-//   value: "Jerry",
+//   value: "William",
 //   writable: true,
 //   enumerable: false,
 //   configurable: false
@@ -1171,7 +1171,7 @@ Object.defineProperties(user, {
   age: { value: 18 }
 });
 console.log(user);  // {name: 'Michael', age: 18}
-user.name = "Jerry"; // TypeError
+user.name = "William"; // TypeError
 ```
 
 ### 禁止添加
@@ -1205,7 +1205,7 @@ console.log(Object.isExtensible(user)); // false
 ```js
 "use strict";
 const user = {
-  name: "Jerry",
+  name: "William",
   age: 18
 };
 
@@ -1222,7 +1222,7 @@ delete user.name;  // Error
 ```tex
 {
   "name": {
-    "value": "Jerry",
+    "value": "William",
     "writable": true,
     "enumerable": true,
     "configurable": false 💡
@@ -1257,7 +1257,7 @@ const user = {
   name: "Michael"
 };
 Object.freeze(user);
-user.name = "Jerry"; // Error
+user.name = "William"; // Error
 ```
 
 `Object.isFrozen()`方法判断一个对象是否被冻结
@@ -1288,7 +1288,7 @@ console.log(Object.isFrozen(user));  // true
 ```js
 "use strict";
 const user = {
-    data: { name: 'Jerry', age: null },
+    data: { name: 'William', age: null },
     set age(value) {
         if (typeof value != "number" || value > 100 || value < 10) {
             throw new Error("年龄格式错误");
@@ -1325,7 +1325,7 @@ console.log(Lesson.total); //410
 
 ```js
 const web = {
-    name: "Jerry",
+    name: "William",
     url: "google.com",
     get site() {
         return `${this.name} ${this.url}`;
@@ -1334,9 +1334,9 @@ const web = {
         [this.name, this.url] = value.split(",");
     }
 };
-console.log(web.site);  // Jerry google.com
-web.site = "Jerry,baidu.com";
-console.log(web.site);  // Jerry baidu.com
+console.log(web.site);  // William google.com
+web.site = "William,baidu.com";
+console.log(web.site);  // William baidu.com
 ```
 
 下面是设置token储取的示例，将业务逻辑使用`getter/setter`处理更方便，也方便其他业务的复用。
@@ -1374,8 +1374,8 @@ const user = {
         this._name = value;
     }
 };
-user.name = "Jerry";
-console.log(user.name);  // Jerry
+user.name = "William";
+console.log(user.name);  // William
 user.name = "H";  // 用户名不能小于三位
 ```
 
@@ -1407,8 +1407,8 @@ function User(name, age) {
         }
     });
 }
-let obj = new User("Jerry", 33);
-console.log(obj.name);  // Jerry
+let obj = new User("William", 33);
+console.log(obj.name);  // William
 obj.name = "Michael";
 console.log(obj.name);  // Michael
 ```
@@ -1437,8 +1437,8 @@ class User {
         this[DATA].name = value;
     }
 }
-let obj = new User("Jerry", 33);
-console.log(obj.name);  // Jerry
+let obj = new User("William", 33);
+console.log(obj.name);  // William
 obj.name = "Michael";
 console.log(obj.name);  // Michael
 console.log(obj);  // User {Symbol(): {…}}
@@ -1470,8 +1470,8 @@ function observer(data, key, v) {
         },
     })
 }
-data.name = 'Jerry'
-console.dir(data.name) // Jerry
+data.name = 'William'
+console.dir(data.name) // William
 ```
 
 ## Proxy 💡 
@@ -1490,7 +1490,7 @@ console.dir(data.name) // Jerry
 
 ```js
 "use strict";
-const obj = { name: "Jerry" };
+const obj = { name: "William" };
 // Proxy返回一个新对象，通过新对象操作代理的原始数据
 const proxy = new Proxy(obj, {
   get(obj, property) {
@@ -1502,7 +1502,7 @@ const proxy = new Proxy(obj, {
   }
 });
 proxy.age = 10;
-console.log(obj);  // {name: 'Jerry', age: 10}
+console.log(obj);  // {name: 'William', age: 10}
 ```
 
 ### 代理函数
@@ -1702,7 +1702,7 @@ let view = new View().run();
 
 ```js
 let obj = {
-    "title": "Jerry",
+    "title": "William",
     "url": "google.com",
     "teacher": {
         "name": "Michael",
@@ -1741,28 +1741,28 @@ console.log(lessons[0].title);  // 媒体查询响应式布局
 
 ```js
 let obj = {
-    "title": "Jerry",
+    "title": "William",
     "url": "ace.com",
     "teacher": {
         "name": "Michael",
     }
 }
 console.log(JSON.stringify(obj)); 
-// {"title":"Jerry","url":"ace.com","teacher":{"name":"Michael"}}
+// {"title":"William","url":"ace.com","teacher":{"name":"Michael"}}
 ```
 
 💡 根据第二个参数指定保存的属性
 
 ```js
 console.log(JSON.stringify(obj, ['title', 'url']));
-// {"title":"Jerry","url":"ace.com"}
+// {"title":"William","url":"ace.com"}
 ```
 
 💡 第三个是参数用来控制TAB数量，如果字符串则为前导字符。
 
 ```js
 let obj = {
-    "title": "Jerry",
+    "title": "William",
     "url": "ace.com",
     "teacher": {
         "name": "Michael",
@@ -1775,7 +1775,7 @@ console.log(JSON.stringify(obj, null, 4));
 
 ```js
 let obj = {
-    "title": "Jerry",
+    "title": "William",
     "url": "ace.com",
     "teacher": {
         "name": "Michael大叔",
@@ -1797,7 +1797,7 @@ console.log(JSON.stringify(obj));
 
 ```js
 let obj = {
-  "title": "Jerry",
+  "title": "William",
   "url": "ace.com",
   "teacher": {
   	"name": "Michael",
@@ -1805,14 +1805,14 @@ let obj = {
 }
 let jsonStr = JSON.stringify(obj);
 console.log(JSON.parse(jsonStr)); 
-// {title: 'Jerry', url: 'ace.com', teacher: {…}}
+// {title: 'William', url: 'ace.com', teacher: {…}}
 ```
 
 使用第二个参数函数来对返回的数据二次处理
 
 ```js
 let obj = {
-    title: "Jerry",
+    title: "William",
     url: "ace.com",
     teacher: {
         name: "Michael"
@@ -1827,6 +1827,6 @@ console.log(
         return value;
     })
 );
-// {title: '[推荐] Jerry', url: 'ace.com', teacher: {…}}
+// {title: '[推荐] William', url: 'ace.com', teacher: {…}}
 ```
 

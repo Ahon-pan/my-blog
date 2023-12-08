@@ -322,14 +322,14 @@ npm install webpack webpack-cli loader-utils -D
     const callback = this.async();
   
     setTimeout(() => {
-      const result = source.replace("Jerry", options.name);
+      const result = source.replace("William", options.name);
       // callback返回更多数据
       callback(null, result);
     }, 2000);
   };
   ```
 
-- index.js：   `console.log("hello Jerry");`
+- index.js：   `console.log("hello William");`
 
 - package.json
 

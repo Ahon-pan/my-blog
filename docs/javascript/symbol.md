@@ -23,11 +23,11 @@ console.log(Symbol.keyFor(b))   // b  Symbol.keyFor获取key
 
 ```js
 let u1 = {
-	name: "Jerry",
+	name: "William",
     key: Symbol()
 }
 let u2 = {
-	name: "Jerry",
+	name: "William",
     key: Symbol()
 }
 let grade ={

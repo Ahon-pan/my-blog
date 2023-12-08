@@ -199,7 +199,7 @@ function mountComponent(vnode, container, anchor) {
 
 我们需要一个机制是的无论响应式数据进行多少次修改，副作用函数都只会执行一次。这个借助之前的**调度器**即可实现：
 
-🌐 [调度器 (opens new window)](https://www.ijerrychen.com/VueJs3/section2/chapter4.html#%E8%B0%83%E5%BA%A6%E6%89%A7%E8%A1%8C)
+🌐 [调度器 (opens new window)](https://www.iWilliamchen.com/VueJs3/section2/chapter4.html#%E8%B0%83%E5%BA%A6%E6%89%A7%E8%A1%8C)
 
 ```js
 // 任务缓存队列，Set 可自动去重

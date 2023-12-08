@@ -92,7 +92,7 @@ Promise.resolve().then(() => console.log(4))
 下面通过一个例子来详细分析宏任务与微任务
 
 ```js
-console.log("Jerry");
+console.log("William");
 setTimeout(function() {
     console.log("定时器");
 }, 0);
@@ -104,7 +104,7 @@ Promise.resolve().then(function() {
 console.log("Hello");
 
 #输出结果为
-Jerry
+William
 Hello
 promise1
 promise2
@@ -173,11 +173,11 @@ promise2
 setTimeout(func,6);
 ```
 
-下面的代码会先输出 `hello` 之后输出 `jerry`
+下面的代码会先输出 `hello` 之后输出 `William`
 
 ```js
 setTimeout(() => {
-  console.log("jerry");  // 宏任务队列
+  console.log("William");  // 宏任务队列
 }, 0);
 console.log("hello");
 ```

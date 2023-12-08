@@ -15,11 +15,11 @@
 
 ```js
 let m = new Map([
-  ['world', 'Jerry'],
+  ['world', 'William'],
   ['abccms', '开源系统']
 ]);
 
-console.log(m.get('world')); // Jerry
+console.log(m.get('world')); // William
 ```
 
 💡 使用`set` 方法添加元素，支持**链式操作**
@@ -27,7 +27,7 @@ console.log(m.get('world')); // Jerry
 ```js
 let map = new Map();
 let obj = {
-  name: "Jerry"
+  name: "William"
 };
 
 map.set(obj, "world.com").set("name", "abccms");
@@ -39,7 +39,7 @@ console.log(map.entries()); //MapIterator {{…} => "world.com", "name" => "abcc
 
 ```js
 const abc = new Map();
-const arr = [["world", "Jerry"], ["abccms", "开源系统"]];
+const arr = [["world", "William"], ["abccms", "开源系统"]];
 
 arr.forEach(([key, value]) => {
   abc.set(key, value);
@@ -50,11 +50,11 @@ console.log(abc);
 📌 对于键是对象的`Map`， 键保存的是**内存地址**，值相同但内存地址不同的视为两个键。
 
 ```js
-let arr = ["Jerry"];
+let arr = ["William"];
 const abc = new Map();
 abc.set(arr, "world.com");
 console.log(abc.get(arr)); //world.com
-console.log(abc.get(["Jerry"])); // undefined
+console.log(abc.get(["William"])); // undefined
 ```
 
 ### 获取数量
@@ -79,7 +79,7 @@ console.log(map.has(obj1));
 let map = new Map();
 
 let obj = {
-	name: 'Jerry'
+	name: 'William'
 }
 
 map.set(obj, 'world.com');
@@ -93,7 +93,7 @@ console.log(map.get(obj));
 ```js
 let map = new Map();
 let obj = {
-	name: 'Jerry'
+	name: 'William'
 }
 
 map.set(obj, 'world.com');
@@ -120,7 +120,7 @@ map.set(obj1, {
 });
 
 map.set(obj2, {
-	title: 'Jerry'
+	title: 'William'
 });
 
 console.log(map.size);  // 2
@@ -133,16 +133,16 @@ console.log(map.size);  // 0
 📗 使用 `keys()/values()/entries()` 都可以返回可遍历的迭代对象。
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 console.log(abc.keys()); //MapIterator {"world", "abccms"}
-console.log(abc.values()); //MapIterator {"Jerry", "开源系统"}
-console.log(abc.entries()); //MapIterator {"world" => "Jerry", "abccms" => "开源系统"}
+console.log(abc.values()); //MapIterator {"William", "开源系统"}
+console.log(abc.entries()); //MapIterator {"world" => "William", "abccms" => "开源系统"}
 ```
 
 可以使用`keys/values` 函数遍历键与值
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 
 for (const key of abc.keys()) {
   console.log(key);
@@ -155,7 +155,7 @@ for (const value of abc.values()) {
 使用`for/of`遍历操作，直播遍历Map 等同于使用`entries()` 函数
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 for (const [key, value] of abc) {
   console.log(`${key}=>${value}`);
 }
@@ -164,9 +164,9 @@ for (const [key, value] of abc) {
 📌 使用`forEach`遍历操作
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 abc.forEach((value, key) => {
-  console.log(`${key}=>${value}`);   // world=>Jerry   abccms=>开源系统
+  console.log(`${key}=>${value}`);   // world=>William   abccms=>开源系统
 });
 ```
 
@@ -175,24 +175,24 @@ abc.forEach((value, key) => {
 可以使用`展开语法` 或 `Array.form` 静态方法将Set类型转为数组，这样就可以使用数组处理函数了
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 
-console.log(...abc); //(2) ["world", "Jerry"] (2) ["abccms", "开源系统"]
-console.log(...abc.entries()); //(2) ["world", "Jerry"] (2) ["abccms", "开源系统"]
-console.log(...abc.values()); //Jerry 开源系统
+console.log(...abc); //(2) ["world", "William"] (2) ["abccms", "开源系统"]
+console.log(...abc.entries()); //(2) ["world", "William"] (2) ["abccms", "开源系统"]
+console.log(...abc.values()); //William 开源系统
 console.log(...abc.keys()); //world abccms
 ```
 
-检索包含`Jerry`的值组成新Map
+检索包含`William`的值组成新Map
 
 ```js
-let abc = new Map([["world", "Jerry"], ["abccms", "开源系统"]]);
+let abc = new Map([["world", "William"], ["abccms", "开源系统"]]);
 
 let newArr = [...abc].filter(function(item) {
-  return item[1].includes("Jerry");
+  return item[1].includes("William");
 });
 
-abc = new Map(newArr);  // Map(1) {"world" => "Jerry"}
+abc = new Map(newArr);  // Map(1) {"world" => "William"}
 console.log(...abc.keys());  // world
 ```
 
@@ -204,7 +204,7 @@ console.log(...abc.keys());  // world
 
 ```html
 <body>
-  <div desc="Jerry">world</div>
+  <div desc="William">world</div>
   <div desc="开源系统">abccms</div>
 </body>
 

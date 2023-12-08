@@ -73,7 +73,7 @@ module.define("module2", ["module1"], function(M1){
 
 ```js
 export let abc = {
-  name: "Jerry"
+  name: "William"
 };
 ```
 
@@ -107,7 +107,7 @@ export let abc = {
   <script>
     console.log(document.querySelector("button")); //undefined
   </script>
-  <button>Jerry</button>
+  <button>William</button>
 </body>
 ```
 
@@ -207,7 +207,7 @@ console.log("google.com");
 下面是对定义的 `abc.js` 模块，分别导出内容
 
 ```js
-export const site = "Jerry";
+export const site = "William";
 export const func = function() {
   return "is a module function";
 };
@@ -221,7 +221,7 @@ export class User {
 下面定义了`abc.js` 模块，并使用变量导出
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   return "is a module function";
 };
@@ -282,7 +282,7 @@ if (true) {
 - 本模块与导入模块重名时，可以通过起别名防止错误
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   return "is a module function";
 };
@@ -311,7 +311,7 @@ export { site, func, User };
 模块可以对导出给外部的功能起别名，下面是`abc.js` 模块对导出给外部的模块功能起了别名
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   console.log("is a module function");
 };
@@ -390,7 +390,7 @@ export { User as default };
 使用`export default` 导出默认接口，使用 `export {}` 导入普通接口
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   console.log("is a module function");
 };
@@ -405,7 +405,7 @@ export { site, func };
 也可以使用以下方式导出模块
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   console.log("is a module function");
 };
@@ -488,7 +488,7 @@ abc.show();
 下面是 `module1.js` 模块内容
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   console.log("is a module1 function");
 };
@@ -548,7 +548,7 @@ if (true) {
 测试用的 `abc.js` 模块内容如下
 
 ```js
-const site = "Jerry";
+const site = "William";
 const func = function() {
   console.log("is a module function");
 };
@@ -570,7 +570,7 @@ export { site, func };
 下面是在点击事件发生后按需要加载模块
 
 ```html
-<button>Jerry</button>
+<button>William</button>
 <script>
   document.querySelector("button").addEventListener("click", () => {
     let abc = import("./abc.js").then(({ site, func }) => {
@@ -585,10 +585,10 @@ export { site, func };
 | 表达式                                         | 说明             |
 | ---------------------------------------------- | ---------------- |
 | export function show(){}                       | 导出函数         |
-| export const name='Jerry'                      | 导出变量         |
+| export const name='William'                      | 导出变量         |
 | export class User{}                            | 导出类           |
 | export default show                            | 默认导出         |
-| const name = 'Jerry' export {name}             | 导出已经存在变量 |
+| const name = 'William' export {name}             | 导出已经存在变量 |
 | export {name as abc_name}                      | 别名导出         |
 | import defaultVar from 'google.js'             | 导入默认导出     |
 | import {name,show} from 'a.j'                  | 导入命名导出     |

@@ -151,7 +151,7 @@ abc("hello", 1, 2, 3);
 ```html
 <body>
     <button message="hello">button</button>
-    <button message="Jerry">button</button>
+    <button message="William">button</button>
 </body>
 
 <script>
@@ -166,7 +166,7 @@ abc("hello", 1, 2, 3);
 
 ```html
 <body>
-  <div>Jerry</div>
+  <div>William</div>
   <div>nice</div>
 </body>
 
@@ -185,7 +185,7 @@ abc("hello", 1, 2, 3);
 ```html
 <body>
     <button message="hello">button</button>
-    <button message="Jerry">button</button>
+    <button message="William">button</button>
 </body>
 
 <script>
@@ -216,7 +216,7 @@ console.log(name);
 
 ```js
 function abc() {
-	return ['nice', 'Jerry'];
+	return ['nice', 'William'];
 }
 let [a, b] = abc();
 console.log(a); //nice
@@ -225,15 +225,15 @@ console.log(a); //nice
 剩余解构指用一个变量来接收剩余参数
 
 ```js
-let [a, ...b] = ['hello', 'nice', 'Jerry'];
-console.log(b);  // ['nice', 'Jerry']
+let [a, ...b] = ['hello', 'nice', 'William'];
+console.log(b);  // ['nice', 'William']
 ```
 
 如果变量已经初始化过，就要使用`()` 定义赋值表达式，严格模式会报错所以不建议使用。
 
 ```js
 let web = "hello";
-[web, url] = ["Jerry.com", "nice.com"];  
+[web, url] = ["William.com", "nice.com"];  
 console.log(web);
 ```
 
@@ -252,7 +252,7 @@ console.log(a); // Array(13)
 ```js
 "use strict";
 
-[web, url] = ["Jerry.com", "nice.com"];
+[web, url] = ["William.com", "nice.com"];
 console.log(web);
 ```
 
@@ -268,8 +268,8 @@ console.log(url);//nice.com
 使用展开语法获取多个值
 
 ```js
-let [name, ...arr] = ['hello', 'Jerry', 'nice.com'];
-console.log(name, arr); //hello (2) ["Jerry", "nice.com"]
+let [name, ...arr] = ['hello', 'William', 'nice.com'];
+console.log(name, arr); //hello (2) ["William", "nice.com"]
 ```
 
 ### 默认值
@@ -277,8 +277,8 @@ console.log(name, arr); //hello (2) ["Jerry", "nice.com"]
 为变量设置默认值
 
 ```js
-let [name, site = 'Jerry'] = ['hello'];
-console.log(site); //Jerry
+let [name, site = 'William'] = ['hello'];
+console.log(site); //William
 ```
 
 ### 函数参数
@@ -289,7 +289,7 @@ console.log(site); //Jerry
 function abc([a, b]) {
 	console.log(a, b);
 }
-abc(['hello', 'Jerry']);
+abc(['hello', 'William']);
 ```
 
 ## 管理元素
@@ -299,17 +299,17 @@ abc(['hello', 'Jerry']);
 使用从0开始的索引来改变数组
 
 ```js
-let arr = [1, "hello", "Jerry"];
+let arr = [1, "hello", "William"];
 arr[1] = 'hello教程';
-console.log(arr); //[1, "hello教程", "Jerry"]
+console.log(arr); //[1, "hello教程", "William"]
 ```
 
 向数组追回元素
 
 ```js
-let arr = [1, "hello", "Jerry"];
+let arr = [1, "hello", "William"];
 arr[arr.length] = 'nice.com';   // push
-console.log(arr);  //[1, "hello", "Jerry", "nice.com"]
+console.log(arr);  //[1, "hello", "William", "nice.com"]
 ```
 
 ### 扩展语法
@@ -317,10 +317,10 @@ console.log(arr);  //[1, "hello", "Jerry", "nice.com"]
 使用展示语法批量添加元素
 
 ```js
-let arr = ["hello", "Jerry"];
+let arr = ["hello", "William"];
 let abc = ["nice"];
 abc.push(...arr);
-console.log(abc); //["nice", "hello", "Jerry"]
+console.log(abc); //["nice", "hello", "William"]
 ```
 
 ### push
@@ -328,9 +328,9 @@ console.log(abc); //["nice", "hello", "Jerry"]
 压入元素，直接改变元数组，返回值为数组元素数量
 
 ```js
-let arr = ["hello", "Jerry"];
+let arr = ["hello", "William"];
 console.log(arr.push('world', 'nice')); //4
-console.log(arr); //["hello", "Jerry", "world", "nice"]
+console.log(arr); //["hello", "William", "world", "nice"]
 ```
 
 根据区间创建新数组
@@ -351,8 +351,8 @@ console.log(rangeArray(1, 6));
 从末尾弹出元素，直接改变元数组，返回值为弹出的元素
 
 ```js
-let arr = ["hello", "Jerry"];
-console.log(arr.pop()); //Jerry
+let arr = ["hello", "William"];
+console.log(arr.pop()); //William
 console.log(arr); //["hello"]
 ```
 
@@ -361,9 +361,9 @@ console.log(arr); //["hello"]
 从数组前面取出一个元素
 
 ```js
-let arr = ["hello", "Jerry"];
+let arr = ["hello", "William"];
 console.log(arr.shift()); //hello
-console.log(arr); //["Jerry"]
+console.log(arr); //["William"]
 ```
 
 ### unshift
@@ -371,9 +371,9 @@ console.log(arr); //["Jerry"]
 从数组前面添加元素
 
 ```js
-let arr = ["hello", "Jerry"];
+let arr = ["hello", "William"];
 console.log(arr.unshift('world', 'nice')); //4
-console.log(arr); //["world", "nice", "hello", "Jerry"]
+console.log(arr); //["world", "nice", "hello", "William"]
 ```
 
 ### fill
@@ -423,7 +423,7 @@ console.log(arr); //删除数据后的原数组 [0, 4, 5, 6]
 通过修改`length`删除最后一个元素
 
 ```js
-let arr = ["hello", "Jerry"];
+let arr = ["hello", "William"];
 arr.length = arr.length - 1;
 console.log(arr);
 ```
@@ -432,24 +432,24 @@ console.log(arr);
 
 ```js
 let arr = [0, 1, 2, 3, 4, 5, 6];
-console.log(arr.splice(1, 3, 'Jerry', 'hello')); //[1, 2, 3]
-console.log(arr); //[0, "Jerry", "hello", 4, 5, 6]
+console.log(arr.splice(1, 3, 'William', 'hello')); //[1, 2, 3]
+console.log(arr); //[0, "William", "hello", 4, 5, 6]
 ```
 
 向末尾添加元素
 
 ```js
 let arr = [0, 1, 2, 3, 4, 5, 6];
-console.log(arr.splice(arr.length, 0, 'Jerry', 'hello')); //[]
-console.log(arr); // [0, 1, 2, 3, 4, 5, 6, "Jerry", "hello"]
+console.log(arr.splice(arr.length, 0, 'William', 'hello')); //[]
+console.log(arr); // [0, 1, 2, 3, 4, 5, 6, "William", "hello"]
 ```
 
 向数组前添加元素
 
 ```js
 let arr = [0, 1, 2, 3, 4, 5, 6];
-console.log(arr.splice(0, 0, 'Jerry', 'hello')); //[]
-console.log(arr); //["Jerry", "hello", 0, 1, 2, 3, 4, 5, 6]
+console.log(arr.splice(0, 0, 'William', 'hello')); //[]
+console.log(arr); //["William", "hello", 0, 1, 2, 3, 4, 5, 6]
 ```
 
 数组元素位置调整函数
@@ -474,7 +474,7 @@ console.table(move(array, 0, 3));
 将数组值修改为`[]`可以清空数组，如果有多个引用时数组在内存中存在被其他变量引用。
 
 ```js
-let user = [{ name: "Jerry" }, { name: "hello" }];
+let user = [{ name: "William" }, { name: "hello" }];
 let arr = user;
 user = [];
 console.log(user);
@@ -484,7 +484,7 @@ console.log(arr);
 将数组`length`设置为0也可以清空数组
 
 ```js
-let user = [{ name: "Jerry" }, { name: "hello" }];
+let user = [{ name: "William" }, { name: "hello" }];
 user.length = 0;
 console.log(user);
 ```
@@ -492,7 +492,7 @@ console.log(user);
 使用`splice`方法删除所有数组元素
 
 ```js
-let user = [{ name: "Jerry" }, { name: "hello" }];
+let user = [{ name: "William" }, { name: "hello" }];
 user.splice(0, user.length);
 console.log(user);
 ```
@@ -500,7 +500,7 @@ console.log(user);
 使用`pop/shift`删除所有元素，来清空数组
 
 ```js
-let user = [{ name: "Jerry" }, { name: "hello" }];
+let user = [{ name: "William" }, { name: "hello" }];
 while (user.pop()) {}
 console.log(user);
 ```
@@ -512,8 +512,8 @@ console.log(user);
 使用`join`连接成字符串
 
 ```js
-let arr = [1, "hello", "Jerry"];
-console.log(arr.join('-')); //1-hello-Jerry 使用join可以指定转换的连接方式
+let arr = [1, "hello", "William"];
+console.log(arr.join('-')); //1-hello-William 使用join可以指定转换的连接方式
 ```
 
 ### split
@@ -530,10 +530,10 @@ console.log(price.split(",")); //["99", "78", "68"]
 `concat`方法用于连接两个或多个数组，元素是值类型的是复制操作，如果是引用类型还是指向同一对象
 
 ```js
-let array = ["Jerry", "nice"];
+let array = ["William", "nice"];
 let abc = [1, 2];
 let cms = [3, 4];
-console.log(array.concat(abc, cms)); //["Jerry", "nice", 1, 2, 3, 4]
+console.log(array.concat(abc, cms)); //["William", "nice", 1, 2, 3, 4]
 ```
 
 也可以使用扩展语法实现连接
@@ -643,13 +643,13 @@ find 方法找到后会把值返回出来
 返回第一次找到的值，不继续查找
 
 ```js
-let arr = ["Jerry", "nice", "Jerry"];
+let arr = ["William", "nice", "William"];
 
 let find = arr.find(function(item) {
-  return item == "Jerry";
+  return item == "William";
 });
 
-console.log(find); //Jerry
+console.log(find); //William
 ```
 
 使用`includes`等不能查找引用类型，因为它们的内存地址是不相等的
@@ -865,16 +865,16 @@ for (const item of lessons) {
 使用数组的迭代对象遍历获取索引与值
 
 ```js
-const abc = ['nice', 'Jerry'];
+const abc = ['nice', 'William'];
 const iterator = abc.entries();
 console.log(iterator.next()); //value:{0:0,1:'nice'}
-console.log(iterator.next()); //value:{0:1,1:'Jerry'}
+console.log(iterator.next()); //value:{0:1,1:'William'}
 ```
 
 这样就可以使用解构特性与 `for/of` 遍历并获取索引与值了
 
 ```js
-const abc = ["Jerry", "nice"];
+const abc = ["William", "nice"];
 
 for (const [key, value] of abc.entries()) {
   console.log(key, value); //这样就可以遍历了
@@ -902,7 +902,7 @@ console.log(arrayMax([1, 3, 2, 9]));
 通过迭代对象获取索引
 
 ```js
-const abc = ["nice", "Jerry"];
+const abc = ["nice", "William"];
 const keys = abc.keys();
 console.log(keys.next());
 console.log(keys.next());
@@ -922,7 +922,7 @@ for (const key of arr.keys()) {
 使用while遍历
 
 ```js
-let arr = ["Jerry", "nice"];
+let arr = ["William", "nice"];
 while (({ value, done } = values.keys()) && done === false) {
 	console.log(value);
 }
@@ -933,7 +933,7 @@ while (({ value, done } = values.keys()) && done === false) {
 通过迭代对象获取值
 
 ```js
-const abc = ["nice", "Jerry"];
+const abc = ["nice", "William"];
 const values = abc.values();
 console.log(values.next());
 console.log(values.next());
@@ -965,7 +965,7 @@ for (const [key, value] of arr.entries()) {
 解构获取内容（对象章节会详细讲解）
 
 ```js
-const abc = ["nice", "Jerry"];
+const abc = ["nice", "William"];
 const iterator = abc.entries();
 
 let {done,value: [k, v]} = iterator.next();

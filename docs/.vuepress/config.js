@@ -10,7 +10,9 @@ const pluginConf = require('./config/pluginConf.js');
 const { defaultTheme } = require('@vuepress/theme-default')
 // const { googleAnalyticsPlugin } = require('@vuepress/plugin-google-analytics')
 // import { commentPlugin } from "vuepress-plugin-comment";
-
+function initSakanaWidget() {  
+  new SakanaWidget().mount('#sakana-widget');  
+}  
 module.exports = {
   lang: 'zh-CN',
   title: 'William',// 设置网站标题
@@ -19,7 +21,7 @@ module.exports = {
   dest: 'docs/.vuepress/dist',  // 设置输出目录
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon
-    ['link', {rel: 'stylesheet', href: '/css/index.css'}],
+    ['link', {rel: 'stylesheet', href: '/my-blog/css/index.css'}],
     // ["script", {
     //   "language": "javascript",
     //   "type": "text/javascript",
@@ -30,7 +32,7 @@ module.exports = {
       "language": "javascript",
       "type": "text/javascript",
       "src": "/my-blog/js/MouseClickEffect.js"
-    }]
+    }],
     // 添加谷歌统计
     // [
     //   "script",

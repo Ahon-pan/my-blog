@@ -12,5 +12,6 @@ tagline: William's blog
 #   - title: 
 #     details: To acquire the habit of reading is to construct for yourself a refuge from almost all the miseries of life.
 #   - title: Impropriety is the soul of wit.
-footer: Copyright © 2021-present William
+footerHtml: true
+footer: <a href="https://beian.miit.gov.cn">京ICP备2023035556号</a> | Copyright © 2023-present William
 ---

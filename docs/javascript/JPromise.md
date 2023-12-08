@@ -184,7 +184,7 @@ class JPromise {
 
 ```js
 let p = new JPromise((resolve, reject) => {
-    resolve("Jerry");
+    resolve("William");
 });
 console.log(p);
 ```
@@ -226,11 +226,11 @@ then(onFulfilled, onRejected) {
 }
 ```
 
-下面来测试then方法的，结果正常输出`Jerry`
+下面来测试then方法的，结果正常输出`William`
 
 ```js
 let p = new JPromise((resolve, reject) => {
-    resolve("Jerry");
+    resolve("William");
 }).then(
     value => {
         console.log(value);
@@ -274,11 +274,11 @@ then(onFulfilled, onRejected) {
 }
 ```
 
-现在再执行代码，已经有异步效果了，先输出了`Jerry.com`
+现在再执行代码，已经有异步效果了，先输出了`William.com`
 
 ```js
 let p = new JPromise((resolve, reject) => {
-    resolve("Jerry");
+    resolve("William");
 }).then(
     value => {
         console.log(value);
@@ -287,7 +287,7 @@ let p = new JPromise((resolve, reject) => {
         console.log(reason);
     }
 );
-console.log("Jerry.com");
+console.log("William.com");
 ```
 
 ### PENDING状态 💡
@@ -298,7 +298,7 @@ console.log("Jerry.com");
 ...
 let p = new JPromise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Jerry");
+        resolve("William");
     });
 })
     ...
@@ -373,12 +373,12 @@ let p = new JPromise((resolve, reject) => {
 
 ### PENDING异步💡
 
-执行以下代码发现并不是异步操作，应该先输出 `1` 然后是`Jerry`
+执行以下代码发现并不是异步操作，应该先输出 `1` 然后是`William`
 
 ```js
 let p = new JPromise((resolve, reject) => {
     setTimeout(() => {
-        resolve("Jerry");
+        resolve("William");
         console.log("1");
     });
 }).then(
@@ -482,7 +482,7 @@ then(onFulfilled, onRejected) {
 
 ```js
 let p = new JPromise((resolve, reject) => {
-    resolve("Jerry")
+    resolve("William")
 })
 .then(
     value => {
@@ -635,7 +635,7 @@ parse(result, resolve, reject) {
 ```js
 let promise = new Promise(resolve => {
     setTimeout(() => {
-        resolve("Jerry");
+        resolve("William");
     });
 });
 let p = promise.then(value => {
@@ -698,7 +698,7 @@ parse(promise, result, resolve, reject) {
 
 ```js
 let p = new JPromise((resolve, reject) => {
-    resolve("Jerry");
+    resolve("William");
 });
 p = p.then(value => {
     return p;
@@ -724,7 +724,7 @@ static resolve(value) {
 使用普通值的测试
 
 ```js
-JPromise.resolve("Jerry").then(value => {
+JPromise.resolve("William").then(value => {
     console.log(value);
 });
 ```
@@ -734,7 +734,7 @@ JPromise.resolve("Jerry").then(value => {
 ```js
 JPromise.resolve(
     new JPromise(resolve => {
-        resolve("Jerry");
+        resolve("William");
     })
 ).then(value => {
     console.log(value);
@@ -809,10 +809,10 @@ static all(promises) {
 
 ```js
 let p1 = new JPromise((resolve, reject) => {
-    resolve("Jerry");
+    resolve("William");
 });
 let p2 = new JPromise((resolve, reject) => {
-    reject("Jerry");
+    reject("William");
 });
 let promises = JPromise.all([p1, p2]).then(
     promises => {
@@ -827,7 +827,7 @@ let promises = JPromise.all([p1, p2]).then(
 使用我们写的resolve进行测试
 
 ```js
-let p1 = JPromise.resolve("Jerry");
+let p1 = JPromise.resolve("William");
 let p2 = JPromise.resolve("Hello");
 let promises = JPromise.all([p1, p2]).then(
     promises => {
@@ -842,7 +842,7 @@ let promises = JPromise.all([p1, p2]).then(
 其中一个Promise为rejected时的效果
 
 ```js
-let p1 = JPromise.resolve("Jerry");
+let p1 = JPromise.resolve("William");
 let p2 = JPromise.reject("rejected");
 let promises = JPromise.all([p1, p2]).then(
     promises => {
@@ -874,7 +874,7 @@ static race(promises) {
 我们来进行测试
 
 ```js
-let p1 = JPromise.resolve("Jerry");
+let p1 = JPromise.resolve("William");
 let p2 = JPromise.resolve("Nice");
 let promises = JPromise.race([p1, p2]).then(
     promises => {
@@ -891,7 +891,7 @@ let promises = JPromise.race([p1, p2]).then(
 ```js
 let p1 = new JPromise(resolve => {
     setInterval(() => {
-        resolve("Jerry");
+        resolve("William");
     }, 2000);
 });
 let p2 = new JPromise(resolve => {

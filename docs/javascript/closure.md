@@ -26,7 +26,7 @@ count();
 📌 函数每次调用都会创建一个新作用域
 
 ```js
-let site = 'Jerry';
+let site = 'William';
 
 function a() {
   let abc = 'abc.com';
@@ -34,7 +34,7 @@ function a() {
   function b() {
       let web = 'web.com';
       console.log(abc);   // abc.com
-      console.log(site);  // Jerry
+      console.log(site);  // William
   }
   b();
 }
@@ -171,13 +171,13 @@ closure.a(); // 2
 
 ```js
 function abc() {
-  let name = 'Jerry';
+  let name = 'William';
   return function () {
   	return name;
   }
 }
 let abcweb = abc();
-console.log(abcweb()); // Jerry
+console.log(abcweb()); // William
 ```
 
 使用闭包返回数组区间元素
@@ -198,7 +198,7 @@ console.log(arr.filter(between(3, 5)));
 
 ```html
 <body>
-  <button message="Jerry">button</button>
+  <button message="William">button</button>
   <button message="abcweb">button</button>
 </body>
 <script>
@@ -215,7 +215,7 @@ console.log(arr.filter(between(3, 5)));
 
 ```html
 <body>
-  <button message="Jerry">button</button>
+  <button message="William">button</button>
   <button message="abcweb">button</button>
 </body>
 <script>
@@ -233,7 +233,7 @@ console.log(arr.filter(between(3, 5)));
 
 ```html
 <body>
-  <button message="Jerry">button</button>
+  <button message="William">button</button>
   <button message="abcweb">button</button>
 </body>
 <script>
@@ -260,7 +260,7 @@ console.log(arr.filter(between(3, 5)));
       position: absolute;
     }
   </style>
-  <button message="Jerry">Jerry</button>
+  <button message="William">William</button>
   <button message="Hello">Hello</button>
 </body>
 
@@ -355,7 +355,7 @@ divs.forEach(function(item) {
 
 ```js
 let abc = {
-  user: "Jerry",
+  user: "William",
   get: function() {
     let user = 'wawa'
     return function() {
@@ -372,7 +372,7 @@ this 总是指向调用该函数的对象，即函数在搜索this时只会搜�
 
 ```js
 let abc = {
-  user: "Jerry",
+  user: "William",
   get: function() {
     return function() {
       return this.user; // this指向window
@@ -388,19 +388,19 @@ console.log(abc.get()()); //undefined
 
 ```js
 let abc = {
-  user: "Jerry",
+  user: "William",
   get: function() {
     return () => this.user;
   }
 };
-abc.get()(); // Jerry
+abc.get()(); // William
 ```
 
 区别
 
 ```js
 let abc = {
-  user: "Jerry",
+  user: "William",
   get: () => this.user
 };
 abc.get()  // undefined

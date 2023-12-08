@@ -10,7 +10,7 @@
 
 ```js
 let abc = new Function("title", "console.log(title)");
-abc('Jerry');
+abc('William');
 ```
 
 标准语法是使用**函数声明**来定义函数
@@ -35,8 +35,8 @@ let user = {
   	this.name = value;
   }
 }
-user.setName('Jerry');
-console.log(user.getName()); // Jerry
+user.setName('William');
+console.log(user.getName()); // William
 ```
 
 全局函数会声明在window对象中，这不正确建议使用后面章节的模块处理
@@ -49,16 +49,16 @@ console.log(window.screenX); //2200
 
 ```js
 function screenX() {
-  return "Jerry";
+  return "William";
 }
-console.log(screenX()); //Jerry
+console.log(screenX()); //William
 ```
 
 💡 使用`let/const`时不会压入window
 
 ```js
 let abc = function() {
-  console.log("Jerry");
+  console.log("William");
 };
 window.abc(); //window.abc is not a function
 ```
@@ -142,19 +142,19 @@ console.log(web);   // ReferenceError: web is not defined
 函数也会提升到前面，优先级行于`var`变量提高（函数声明）
 
 ```js
-console.log(abc()); //Jerry
+console.log(abc()); //William
 function abc() {
-	return 'Jerry';
+	return 'William';
 }
 ```
 
 变量函数定义不会被提升（函数表达式）
 
 ```js
-console.log(abc()); //Jerry
+console.log(abc()); //William
 
 function abc() {
-	return 'Jerry';
+	return 'William';
 }
 var abc = function () {
 	return 'hello.com';
@@ -426,16 +426,16 @@ console.log(abc); //[1, 2, 3]
 function abc(...args) {
   console.log(args);
 }
-abc(1, 2, 3, "Jerry"); //[1, 2, 3, "Jerry"]
+abc(1, 2, 3, "William"); //[1, 2, 3, "William"]
 ```
 
 也可以用于接收部分参数
 
 ```js
 function abc(site, ...args) {
-  console.log(site, args); //Jerry (3) [1, 2, 3]
+  console.log(site, args); //William (3) [1, 2, 3]
 }
-abc("Jerry", 1, 2, 3);
+abc("William", 1, 2, 3);
 ```
 
 使用 `...` 可以接受传入的多个参数合并为数组，下面是使用点语法进行求合计算。
@@ -487,7 +487,7 @@ console.log(this == window); //true
 使用严格模式时在全局函数内`this`为`undefined`
 
 ```js
-var abc = 'Jerry';
+var abc = 'William';
 function get() {
   "use strict"
   return this.abc;
@@ -510,14 +510,14 @@ console.log(get());
 
 ```js
 function User() {
-  this.name = "Jerry";
+  this.name = "William";
   this.say = function() {
-    console.log(this); //User {name: "Jerry", say: ƒ}
+    console.log(this); //User {name: "William", say: ƒ}
     return this.name;
   };
 }
 let abc = new User();
-console.log(abc.say()); //Jerry
+console.log(abc.say()); //William
 ```
 
 **对象字面量**
@@ -527,9 +527,9 @@ console.log(abc.say()); //Jerry
 
 ```js
 let obj = {
-  site: "Jerry",
+  site: "William",
   show() {
-    console.log(this.site); //Jerry
+    console.log(this.site); //William
     console.log(`this in show method: ${this}`); //this in show method: [object Object]
     function abc() {
       console.log(typeof this.site); //undefined
@@ -545,7 +545,7 @@ obj.show();
 
 ```js
 let Lesson = {
-  site: "Jerry",
+  site: "William",
   lists: ["js", "css", "mysql"],
   show() {
     // show作为对象方法，this指向当前的Lession对象
@@ -562,7 +562,7 @@ console.log(Lesson.show());
 
 ```js
 let Lesson = {
-    site: "Jerry",
+    site: "William",
     lists: ["js", "css", "mysql"],
     show() {
       const self = this;
@@ -585,7 +585,7 @@ let Lesson = {
 ```js
 var name = 'hello';
 var obj = {
-  name: 'Jerry',
+  name: 'William',
   getName: function () {
     // this == obj
     return function () {
@@ -602,7 +602,7 @@ console.log(obj.getName()()); // hello
 ```js
 var name = 'hello';
 var obj = {
-  name: 'Jerry',
+  name: 'William',
   getName: function () {
     var self = this;
 		return function() {
@@ -610,7 +610,7 @@ var obj = {
     }
   }
 }
-console.log(obj.getName()()); // Jerry
+console.log(obj.getName()()); // William
 ```
 
 使用箭头函数后 `this` 为定义该函数的上下文，也可以理解为定义时父作用域中的`this`
@@ -618,7 +618,7 @@ console.log(obj.getName()()); // Jerry
 ```js
 var name = 'hello';
 var obj = {
-  name: 'Jerry',
+  name: 'William',
   getName: function () {
     // 箭头函数的this指向定义时的父级作用域
     return () => {
@@ -626,7 +626,7 @@ var obj = {
     }
   }
 }
-console.log(obj.getName()()); // Jerry
+console.log(obj.getName()()); // William
 ```
 
 ::: tip 事件处理函数的this
@@ -648,7 +648,7 @@ console.log(obj.getName()()); // Jerry
 </body>
 <script>
   let Dom = {
-    site: "Jerry",
+    site: "William",
     bind() {
       const button = document.querySelector("button");
       button.addEventListener("click", function() {
@@ -669,7 +669,7 @@ console.log(obj.getName()()); // Jerry
 </body>
 <script>
   let Dom = {
-    site: "Jerry",
+    site: "William",
     bind() {
       const button = document.querySelector("button");
       button.addEventListener("click", event => {
@@ -690,7 +690,7 @@ console.log(obj.getName()()); // Jerry
 </body>
 <script>
   let Dom = {
-    site: "Jerry",
+    site: "William",
     handleEvent: function(event) {
       console.log(this);
     },
@@ -775,8 +775,8 @@ function Bcd(name) {
         console.log(this.name)
     }
 }
-console.log(new Abc("Jerry").show())  // Jerry
-console.log(new Bcd("Jerry").show())  // Jerry
+console.log(new Abc("William").show())  // William
+console.log(new Bcd("William").show())  // William
 ```
 
 ## apply/call/bind
@@ -792,7 +792,7 @@ function User(name) {
   // this => {}
   this.name = name;
 }
-let abc = new User("Jerry");
+let abc = new User("William");
 ```
 
 可以改变构造函数中的空对象，即让构造函数this指向到另一个对象。
@@ -827,7 +827,7 @@ let lisi = {
 let wangwu = {
     name: '王五'
 };
-show.call(lisi, 'Jerry');
+show.call(lisi, 'William');
 show.apply(wangwu, ['HDCMS']);
 ```
 
@@ -835,7 +835,7 @@ show.apply(wangwu, ['HDCMS']);
 
 ```html
 <body>
-    <button message="Jerry">button</button>
+    <button message="William">button</button>
     <button message="hello">button</button>
 </body>
 <script>
@@ -949,7 +949,7 @@ console.log(
 </head>
 <body>
   <dl>
-    <dt>Jerry</dt>
+    <dt>William</dt>
     <dd>1</dd>
     <dt>hello</dt>
     <dd hidden="hidden">2</dd>
@@ -1005,7 +1005,7 @@ console.log(newFunc(2));
 
 ```js
 <body>
-  <button>Jerry</button>
+  <button>William</button>
 </body>
 <script>
   document.querySelector("button").addEventListener(

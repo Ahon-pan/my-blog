@@ -132,7 +132,7 @@ B 地球是圆的
 `strong` 标签和 `em` 一样，用于强调文本，但是它们的强调程度不同。
 
 ```html
-<strong>Jerry</strong>正在学习<em>HTML</em>
+<strong>William</strong>正在学习<em>HTML</em>
 ```
 
 ![](https://raw.githubusercontent.com/caffreygo/static/main/blog/html/text/strongem.png)

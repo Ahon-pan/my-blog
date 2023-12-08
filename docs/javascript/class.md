@@ -912,8 +912,8 @@ function Arr(...args) {
 }
 let a = [1, 23];
 Arr.prototype = Object.create(Array.prototype);  // Arr继承了Array的原型
-let arr = new Arr("Jerry", 2, 3);
-console.log(arr.first());  // "Jerry"
+let arr = new Arr("William", 2, 3);
+console.log(arr.first());  // "William"
 ```
 
 使用 `class`扩展内置类
@@ -940,11 +940,11 @@ let u = new NewArr(5, 3, 2, 1);
 console.log(u.length); //4
 console.log(u.first()); //5
 
-u.add("Jerry");
-console.log(u.join(",")); //5,3,2,1,Jerry
+u.add("William");
+console.log(u.join(",")); //5,3,2,1,William
 
 u.remove("3");
-console.log(u.join(",")); //5,2,1,Jerry
+console.log(u.join(",")); //5,2,1,William
 ```
 
 ### mixin

@@ -93,7 +93,7 @@ renderer(vnode, document.body)
 const vnode = {
   tag: 'div',
   props: {
-    onClick: () => alert('hello jerry')
+    onClick: () => alert('hello William')
   },
   children: 'click again'  // 从 click me 改成 click again
 }

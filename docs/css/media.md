@@ -207,7 +207,7 @@ viewport是虚拟窗口，虚拟窗口大于手机的屏幕尺寸。手机端浏
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerry</title>
+    <title>William</title>
     <style>
         @media screen and (orientation: landscape) and (max-width: 600px) {
             body {
@@ -239,7 +239,7 @@ viewport是虚拟窗口，虚拟窗口大于手机的屏幕尺寸。手机端浏
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerry</title>
+    <title>William</title>
     <style>
         @media screen and (orientation: landscape),
         screen and (max-width: 600px) {
@@ -272,7 +272,7 @@ viewport是虚拟窗口，虚拟窗口大于手机的屏幕尺寸。手机端浏
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerry</title>
+    <title>William</title>
     <style>
         @media not screen and (orientation: landscape) and (max-width:600px) {
             body {

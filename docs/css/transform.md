@@ -1504,7 +1504,7 @@ Y轴不倾斜，上下保持水平；X轴倾斜，左右出现斜边。
 
 <main>
     <a class="btn">
-        JERRYCHEN
+        William
     </a>
 </main>
 ```
@@ -1569,7 +1569,7 @@ Y轴不倾斜，上下保持水平；X轴倾斜，左右出现斜边。
     }
 </style>
 
-<a href="" class="btn">JerryChen</a>
+<a href="" class="btn">William</a>
 ```
 
 ## 变形基点

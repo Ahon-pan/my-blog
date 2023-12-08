@@ -161,7 +161,7 @@ let obj1 = { age: 11 } as const;
 ```typescript
 // function func(): (string | ((x: number, y: number) => number))[]
 function func() {
-  let a = "Jerry";
+  let a = "William";
   let b = (x: number, y: number): number => x + y;
   return [a, b];
 }
@@ -179,7 +179,7 @@ console.log(b(4, 5));   // 9
 
 ```typescript
 function func() {
-  let a = "Jerry";
+  let a = "William";
   let b = (x: number, y: number): number => x + y;
   return [a, b] as [typeof a, typeof b];
 }
@@ -192,7 +192,7 @@ console.log(n(4, 5));   // 9
 
 ```typescript
 function func() {
-  let a = "Jerry";
+  let a = "William";
   let b = (x: number, y: number): number => x + y;
   // return [a, b] as [typeof a, typeof b];
   return [a, b] as const;

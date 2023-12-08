@@ -44,11 +44,11 @@ const fn = (name) => {
 
 const p2 = new Proxy(fn, {
   apply(target, thisArg, argArray) {
-    target.call(thisArg, ...argArray)  // 我是Jerry
+    target.call(thisArg, ...argArray)  // 我是William
   }
 })
 
-p2('Jerry')
+p2('William')
 ```
 
 #### 复合操作

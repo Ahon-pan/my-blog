@@ -102,7 +102,7 @@ setTimeout(() => {
 
 ### WeakMap
 
-🌐 [WeakMap (opens new window)](https://www.ijerrychen.com/javascript/map.html#weakmap)
+🌐 [WeakMap (opens new window)](https://www.iWilliamchen.com/javascript/map.html#weakmap)
 
 WeakMap 对 key 是弱引用，不影响垃圾回收的工作。根据这个特性可知，一旦 key 被垃圾回收器回收，那么对应的键和值就访问不到了。
 

@@ -18,7 +18,7 @@
 下面使用获取字符串中的所有数字来比较函数与正则的差异。
 
 ```js
-let str = "jerrychen2200hello9988";
+let str = "William2200hello9988";
 let nums = [...str].filter(a => !Number.isNaN(parseInt(a))); // 过滤出数字数组
 console.log(nums.join(""));  // 22009988
 ```
@@ -26,7 +26,7 @@ console.log(nums.join(""));  // 22009988
 使用正则表达式将简单得多
 
 ```js
-let str = "jerrychen2200hello9988";
+let str = "William2200hello9988";
 console.log(str.match(/\d/g).join("")); // 22009988
 ```
 
@@ -315,7 +315,7 @@ console.log(url.match(/.+/));
 let str = `
   <span>
     hello
-    jerry
+    William
   </span>
 `;
 // .* 匹配 0个或多个 除换行符之外 的字符
@@ -924,7 +924,7 @@ console.log(str.match(/a{2,}?/)); //aa
 <body>
   <h1>google</h1>
   <h2>getemoji.com</h2>
-  <h1>Jerry</h1>
+  <h1>William</h1>
 </body>
 
 <script>
@@ -977,7 +977,7 @@ String.prototype.matchAll = function(reg) {
     return [res, ...match];
   }
 };
-let str = "jerry";
+let str = "William";
 console.dir(str.matchAll(/(\w)/i));
 ```
 
@@ -993,7 +993,7 @@ console.dir(str.matchAll(/(\w)/i));
 <body>
   <h1>google</h1>
   <h2>getemoji.com</h2>
-  <h1>Jerry</h1>
+  <h1>William</h1>
 </body>
 
 <script>
@@ -1116,12 +1116,12 @@ console.log(str.replace(/\//g, "-")); //2023-02-12
 | `$'` | 插入当前匹配的子串右边的内容。                               |
 | `$n` | 假如第一个参数是 `RegExp` 对象，并且 n 是个小于100的非负整数，那么插入第 n 个括号匹配的字符串。提示：索引是从1开始 |
 
-在Jerry前后添加三个`=`
+在William前后添加三个`=`
 
 ```js
-let abc = "=Jerry=";
-//  $`(=)   $`(=)   $&(=Jerry=)   $'(=)   $'(=)
-console.log(abc.replace(/Jerry/g, "$`$`$&$'$'"));  // ===Jerry===
+let abc = "=William=";
+//  $`(=)   $`(=)   $&(=William=)   $'(=)   $'(=)
+console.log(abc.replace(/William/g, "$`$`$&$'$'"));  // ===William===
 ```
 
 把电话号用 `-` 连接
@@ -1185,7 +1185,7 @@ console.log(abc.replace(/\((\d{3,4})\)(\d{7,8})/g, "$1-$2"));
 <body>
   <h1>google.com</h1>
   <h2>baidu.com</h2>
-  <h1>Jerry</h1>
+  <h1>William</h1>
 </body>
 
 <script>
@@ -1204,7 +1204,7 @@ console.log(abc.replace(/\((\d{3,4})\)(\d{7,8})/g, "$1-$2"));
 <body>
     <p>google.com</p>
     <p>baidu.com</p>
-    <p>Jerry</p>
+    <p>William</p>
 </body>
 ```
 
@@ -1214,7 +1214,7 @@ console.log(abc.replace(/\((\d{3,4})\)(\d{7,8})/g, "$1-$2"));
 <body>
   <h1>google.com</h1>
   <h2>baidu.com</h2>
-  <h1>Jerry</h1>
+  <h1>William</h1>
 </body>
 <script>
   const reg = /<(h[1-6])>(.*?)<\/\1>/g;
@@ -1265,7 +1265,7 @@ replace 支持回调函数操作，用于处理复杂的替换逻辑
   <div class="content">
     <h1>google.com</h1>
     <h2>baidu.com</h2>
-    <h1>Jerry</h1>
+    <h1>William</h1>
   </div>
 </body>
 <script>
@@ -1507,12 +1507,12 @@ console.log(abc.match(reg));  // ['大家好']
 使用 `(?!exp)`字母后面不能为两位数字
 
 ```js
-let abc = "jerry12";
+let abc = "William12";
 let reg = /[a-z]+(?!\d{2})$/i;
 console.table(reg.exec(abc));  // null
 ```
 
-下例为用户名中不能出现`Jerry`
+下例为用户名中不能出现`William`
 
 ```html
 <body>
@@ -1523,7 +1523,7 @@ console.table(reg.exec(abc));  // null
 <script>
   const input = document.querySelector(`[name="username"]`);
   input.addEventListener("keyup", function() {
-    const reg = /^(?!.*Jerry.*)[a-z]{5,6}$/i;
+    const reg = /^(?!.*William.*)[a-z]{5,6}$/i;
     console.log(this.value.match(reg));
   });
 </script>

@@ -144,7 +144,7 @@ load(
 
 使用传统的异步请求也会产生回调嵌套的问题，下在是获取用户的成绩，需要经过以下两步
 
-1. 根据用户名取得 `jerry` 的编号
+1. 根据用户名取得 `William` 的编号
 2. 根据编号获取成绩
 
 ```js
@@ -160,7 +160,7 @@ function ajax(url, resolve, reject) {
     }
   };
 }
-ajax("http://localhost:8888/api/user?name=jerry", user => {
+ajax("http://localhost:8888/api/user?name=William", user => {
   ajax(
     `http://localhost:8888/api/score?id=${user["id"]}`,
     response => {
@@ -297,7 +297,7 @@ console.log("hello");
 ```js
 const promise = new Promise(resolve => resolve("success"));
 promise.then(alert);   // 2 success
-alert("jerry");   // 1 jerry
+alert("William");   // 1 William
 promise.then(() => {
   alert("finally");   // 3  finally
 });
@@ -789,7 +789,7 @@ class User {
 }
 new Promise((resolve, reject) => {
     // resolve可以直接返回一个promise对象，状态由该promise传递
-    resolve(ajax(`http://localhost:8888/aoi/user?name=jerry`));
+    resolve(ajax(`http://localhost:8888/aoi/user?name=William`));
 })
     .then(user => {
     return new User(user.id); // class实例化的对象的原型有then方法
@@ -807,11 +807,11 @@ new Promise((resolve, reject) => {
 })
     .then(() => {
     return {
-        then: "jerry"  // then为该返回对象的一个属性,正常resolve返回
+        then: "William"  // then为该返回对象的一个属性,正常resolve返回
     };
 })
     .then(v => {
-    console.log(v); // {then: "jerry"}
+    console.log(v); // {then: "William"}
 });
 ```
 
@@ -836,7 +836,7 @@ let promise = new Promise((resolve, reject) => {
 });
 let p2 = promise.then();
 p2.then().then(null, resolve => {
-    console.log(resolve + ",jerry");   // Error: fail,jerry
+    console.log(resolve + ",William");   // Error: fail,William
 });
 ```
 
@@ -1038,7 +1038,7 @@ function ajax(url) {
   });
 }
 
-ajax(`http://localhost:8888/api/user?name=jerry`)
+ajax(`http://localhost:8888/api/user?name=William`)
 .then(value => {
   console.log(value);
 })
@@ -1121,7 +1121,7 @@ function ajax(url) {
   });
 }
 
-ajax("http://localhost:8888/api/user?name=jerry")
+ajax("http://localhost:8888/api/user?name=William")
   .then(user => {
     console.log(user);
   })
@@ -1156,7 +1156,7 @@ function ajax(url) {
   });
 }
 
-ajax("http://localhost:8888/api/user?name=jerry")
+ajax("http://localhost:8888/api/user?name=William")
 .then(user => ajax(`http://localhost:8888/api/score?id=${user["id"]}`))
 .then(lesson => {
   console.log(lesson);
@@ -1264,15 +1264,15 @@ timeout(3000)
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  resolve("jerry");
+  resolve("William");
 });
 promise.then(hd => {
   hd += "-abc";
-  console.log(hd);  // jerry-abc
+  console.log(hd);  // William-abc
 });
 promise.then(hd => {
   hd += "-ccc";
-  console.log(hd);  // jerry-ccc
+  console.log(hd);  // William-ccc
 });
 ```
 
@@ -1280,7 +1280,7 @@ promise.then(hd => {
 
 ```js
 const promise = new Promise((resolve, reject) => {
-  resolve("jerry");
+  resolve("William");
 });
 
 console.log(
@@ -1411,7 +1411,7 @@ function ajax(url) {
     };
   });
 }
-ajax("http://localhost:8888/api/user?name=jerry")
+ajax("http://localhost:8888/api/user?name=William")
 .then(user => {
   return ajax(`http://localhost:8888/api/score?id=${user["id"]}`);
 })
@@ -1457,11 +1457,11 @@ function query(name) {
     }
   );
 }
-query("jerry").then(response => {
+query("William").then(response => {
   console.log(response);  // 没走缓存
 });
 setTimeout(() => {
-  query("jerry").then(response => {
+  query("William").then(response => {
     console.log(response);   // 走缓存了
   });
 }, 1000);
@@ -1472,7 +1472,7 @@ setTimeout(() => {
 ```js
 const obj = {
   then(resolve, reject) {
-    resolve("jerry");
+    resolve("William");
   }
 };
 Promise.resolve(obj).then(value => {
@@ -1492,7 +1492,7 @@ Promise.reject("fail").catch(error => console.log(error));
 
 ```js
 new Promise(resolve => {
-  resolve("jerry");
+  resolve("William");
 })
 .then(v => {
   if (v != "chen") return Promise.reject(new Error("fail"));
@@ -1556,7 +1556,7 @@ function ajax(url) {
 }
 
 const api = "http://localhost:8888/php";
-const promises = ["jerry", "kangkang"].map(name => {
+const promises = ["William", "kangkang"].map(name => {
   return ajax(`${api}/user?name=${name}`);
 });
 
@@ -1574,7 +1574,7 @@ Promise.all(promises)
 ```js
 ...
 const promises = [
-  ajax(`${api}/user?name=jerry`),
+  ajax(`${api}/user?name=William`),
   ajax(`${api}/user?name=chen`),
   { id: 3, name: "qq", email: "123@163.com" }
 ];
@@ -1620,7 +1620,7 @@ Promise.allSettled([p1, p2])
 ```js
 const api = "http://localhost:8888/api";
 const promises = [
-  ajax(`${api}/user?name=jerry`),
+  ajax(`${api}/user?name=William`),
   ajax(`${api}/user?name=chen`)
 ];
 Promise.allSettled(promises).then(response => {
@@ -1667,7 +1667,7 @@ Promise.race([p1, p2])
 ```js
 const api = "http://localhost:8888/php";
 const promises = [
-  ajax(`${api}/user?name=jerry`),
+  ajax(`${api}/user?name=William`),
   new Promise((a, b) =>
     setTimeout(() => b(new Error("request fail")), 2000)
   )
@@ -1791,7 +1791,7 @@ class User {
     });
   }
 }
-new User().render(["jerry", "michael"]);
+new User().render(["William", "michael"]);
 ```
 
 ### 高可用封装
@@ -1928,7 +1928,7 @@ run();
 
 ```js
 async function user() {
-  let user = await ajax(`http://localhost:8888/api/user?name=jerry`);
+  let user = await ajax(`http://localhost:8888/api/user?name=William`);
   let lessons = await ajax(
     `http://localhost:8888/api/score?id=${user.id}`
   );
@@ -1940,7 +1940,7 @@ async function user() {
 
 ```js
 (async () => {
-  let user = await ajax(`http://localhost:8888/api/user?name=jerry`);
+  let user = await ajax(`http://localhost:8888/api/user?name=William`);
   let lessons = await ajax(
     `http://localhost:8888/api/score?id=${user.id}`
   );
@@ -2031,7 +2031,7 @@ class User {
     return user;  // async返回一个promise, resolve(user)
   }
 }
-new User().get("jerry").then(resolve => {
+new User().get("William").then(resolve => {
   console.log(resolve);
 });
 ```
@@ -2044,7 +2044,7 @@ new User().get("jerry").then(resolve => {
 async function get(name) {
   return await ajax(`http://localhost:8888/api/user?name=${name}`);
 }
-get("jerry").then(user => {
+get("William").then(user => {
   console.log(user);
 });
 ```
@@ -2055,7 +2055,7 @@ get("jerry").then(user => {
 let get = async function(name) {
   return await ajax(`http://localhost:8888/api/user?name=${name}`);
 };
-get("jerry").then(user => {
+get("William").then(user => {
   console.log(user);
 });
 ```
@@ -2069,7 +2069,7 @@ let func = {
   }
 };
 
-func.get("jerry").then(user => {
+func.get("William").then(user => {
   console.log(user);
 });
 ```
@@ -2094,7 +2094,7 @@ class User {
     return await ajax(`http://localhost:8888/api/user?name=${name}`);
   }
 }
-let user = new User().get("jerry").then(user => {
+let user = new User().get("William").then(user => {
   console.log(user);
 });
 ```
